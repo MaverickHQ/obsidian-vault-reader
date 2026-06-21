@@ -1,0 +1,9 @@
+Use Vault Reader for plugin docs.
+
+Open Daily Reading Queue before starting your session.
+
+Reference links should stay readable: Device board.
+
+Raw URLs should remain visible: https://www.waveshare.com/esp32-s3-touch-lcd-3.49.htm
+
+Device photo

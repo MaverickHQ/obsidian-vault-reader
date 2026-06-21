@@ -1,0 +1,11 @@
+{
+  "targetType": "book",
+  "sdCardRoot": "/",
+  "libraryRootDirectory": "books",
+  "targetDirectory": "books/books",
+  "outputFileExtension": ".rsvp",
+  "relativePathTemplate": "books/books/{sanitized-slug}.rsvp",
+  "exampleSourceTitle": "Deep Work Session Notes",
+  "exampleSanitizedSlug": "deep-work-session-notes",
+  "exampleOutputPath": "/books/books/deep-work-session-notes.rsvp"
+}

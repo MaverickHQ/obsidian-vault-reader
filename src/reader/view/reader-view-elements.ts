@@ -1,0 +1,34 @@
+export interface ReaderViewElements {
+  shellEl: HTMLElement;
+  titleEl: HTMLElement;
+  sourceLabelEl: HTMLElement;
+  sourceMismatchEl: HTMLElement;
+  readActiveNoteButtonEl: HTMLButtonElement;
+  onboardingEl: HTMLElement;
+  onboardingTextEl: HTMLElement;
+  onboardingDismissButtonEl: HTMLButtonElement;
+  progressEl: HTMLElement;
+  stateEl: HTMLElement;
+  tokenPrefixEl: HTMLElement;
+  tokenFocusEl: HTMLElement;
+  tokenSuffixEl: HTMLElement;
+  emptyStateEl: HTMLElement;
+  wpmInputEl: HTMLInputElement;
+  playPauseButtonEl: HTMLButtonElement;
+  restartButtonEl: HTMLButtonElement;
+  stopButtonEl: HTMLButtonElement;
+  slowerButtonEl: HTMLButtonElement;
+  fasterButtonEl: HTMLButtonElement;
+  orpToggleButtonEl: HTMLButtonElement;
+  typographyLabelEl: HTMLElement;
+  typographyInputEl: HTMLInputElement;
+  typographySliderEl: HTMLInputElement;
+  typographyValueEl: HTMLOutputElement;
+  panelZoomLabelEl: HTMLElement;
+  panelZoomInputEl: HTMLInputElement;
+  panelZoomSliderEl: HTMLInputElement;
+  panelZoomValueEl: HTMLOutputElement;
+  accentToggleButtonEl: HTMLButtonElement;
+  inNoteHighlightToggleButtonEl: HTMLButtonElement;
+  inNoteHighlightColorButtonEl: HTMLButtonElement;
+}
