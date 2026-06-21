@@ -1,0 +1,80 @@
+name: Bug report
+description: Report a reproducible Vault Reader problem.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Vault Reader. Please avoid pasting private note content; use a small redacted example where possible.
+
+  - type: input
+    id: obsidian-version
+    attributes:
+      label: Obsidian version
+      placeholder: "Example: 1.8.10"
+    validations:
+      required: true
+
+  - type: input
+    id: plugin-version
+    attributes:
+      label: Vault Reader version
+      placeholder: "Example: 0.1.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: operating-system
+    attributes:
+      label: Operating system
+      options:
+        - macOS
+        - Windows
+        - Linux
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List the smallest sequence of actions that triggers the issue.
+      placeholder: |
+        1. Open a note with ...
+        2. Run Vault Reader: Start reading current note
+        3. Click ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should Vault Reader have done?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What happened instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: note-shape
+    attributes:
+      label: Note shape
+      description: Describe the note without sharing private content.
+      placeholder: "Example: long prose note with headings, bullet lists, links, and code blocks."
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Console errors or screenshots
+      description: Paste redacted console output or attach screenshots if useful.
+      render: text

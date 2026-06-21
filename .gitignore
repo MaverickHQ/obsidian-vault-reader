@@ -1,0 +1,51 @@
+# macOS
+.DS_Store
+
+# Node
+node_modules/
+main.js
+dist/
+build/
+.vite/
+coverage/
+release/
+
+# Local repository recovery backups
+.git-broken-backup-*
+
+# Logs
+*.log
+
+# Env
+.env
+.env.*
+
+# Obsidian local vault/plugin development artifacts
+.obsidian/workspace*.json
+fixtures/archive/
+fixtures/manual-test-vault/.obsidian/*
+!fixtures/manual-test-vault/.obsidian/community-plugins.json
+!fixtures/manual-test-vault/.obsidian/core-plugins.json
+!fixtures/manual-test-vault/.obsidian/plugins/
+fixtures/manual-test-vault/.obsidian/plugins/*
+!fixtures/manual-test-vault/.obsidian/plugins/vault-reader/
+fixtures/manual-test-vault/.obsidian/plugins/vault-reader/*
+!fixtures/manual-test-vault/.obsidian/plugins/vault-reader/.gitkeep
+fixtures/manual-test-vault/*.md
+!fixtures/manual-test-vault/README.md
+!fixtures/manual-test-vault/00-Test-Index.md
+!fixtures/manual-test-vault/10-Prose.md
+!fixtures/manual-test-vault/20-Headings.md
+!fixtures/manual-test-vault/30-Lists.md
+!fixtures/manual-test-vault/40-Links.md
+!fixtures/manual-test-vault/50-Code-Blocks.md
+!fixtures/manual-test-vault/60-Frontmatter.md
+fixtures/manual-test-vault/*.base
+fixtures/manual-test-vault/*.canvas
+
+# Python
+__pycache__/
+*.pyc
+
+# PlatformIO
+.pio/

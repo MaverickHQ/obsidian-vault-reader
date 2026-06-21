@@ -1,0 +1,57 @@
+name: Feature request
+description: Suggest an improvement for Vault Reader.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the idea. Vault Reader prioritizes local-first Obsidian reading quality before device, AI, account, or backend scope.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case
+      description: What reading workflow would this improve?
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: What would you like Vault Reader to do?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Feature area
+      options:
+        - Reader controls
+        - In-note highlight
+        - Settings
+        - Release/install experience
+        - Accessibility
+        - RSVP Nano/device backlog
+        - BYOK AI backlog
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: local-first-impact
+    attributes:
+      label: Local-first impact
+      description: Would this require network access, accounts, telemetry, credentials, or external services?
+      placeholder: "Example: no network required; all behavior can stay inside Obsidian."
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Are there simpler options or existing Obsidian workflows that partially solve this?

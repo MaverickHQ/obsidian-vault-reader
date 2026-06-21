@@ -1,0 +1,10 @@
+Inline code like npm run build:release should read as plain text.
+
+const token = {
+  raw: "reading",
+  delayMs: 180,
+};
+
+npm run test
+
+After a code block, prose should continue without malformed spacing.
