@@ -1,0 +1,8 @@
+main.js
+node_modules
+package-lock.json
+docs/archive
+CONTEXT.md
+.git-broken-backup-*
+fixtures/notes/*.md
+fixtures/manual-test-vault/*.md

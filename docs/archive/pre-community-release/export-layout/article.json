@@ -1,0 +1,11 @@
+{
+  "targetType": "article",
+  "sdCardRoot": "/",
+  "libraryRootDirectory": "books",
+  "targetDirectory": "books/articles",
+  "outputFileExtension": ".rsvp",
+  "relativePathTemplate": "books/articles/{sanitized-slug}.rsvp",
+  "exampleSourceTitle": "Momentum In Two Minutes",
+  "exampleSanitizedSlug": "momentum-in-two-minutes",
+  "exampleOutputPath": "/books/articles/momentum-in-two-minutes.rsvp"
+}

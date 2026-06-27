@@ -1,0 +1,5 @@
+Equation baseline: a * b * c should remain readable plain text.
+
+Keep this emphasis: important point in the paragraph.
+
+Mixed context should preserve operators: x * y while still stripping formatting markers.
