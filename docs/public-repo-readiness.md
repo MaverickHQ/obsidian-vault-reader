@@ -4,7 +4,7 @@
 
 Production-facing repository: https://github.com/MaverickHQ/obsidian-vault-reader
 
-Visibility: private until final public-release approval.
+Visibility: public.
 
 History strategy: one clean initial commit from release/clean-public-tree.
 
@@ -16,7 +16,7 @@ The production-facing repository is the review candidate for future public visib
 
 ## Repository Metadata
 
-Description: Focused speed reading for Obsidian notes.
+Description: Focused speed reading for Obsidian notes with in-note highlighting.
 
 Topics: obsidian-plugin, speed-reading, rsvp, markdown, reading, typescript
 
@@ -33,33 +33,33 @@ This separation is intentional. Development work continues in the build-lab repo
 
 - Issues enabled
 - Dependabot enabled
-- Private vulnerability reporting enabled when available
-- Branch protection planned for main
+- Private vulnerability reporting enabled
+- Branch protection enabled for main
 - Wiki disabled
 
-Branch protection may require public visibility or account-level GitHub features. If unavailable while private, record the limitation and enable it before Obsidian Community Plugin submission.
+Branch protection requires the `quality` status check on `main`, requires branches to be up to date before merge, blocks force-pushes and branch deletion, and enforces rules for administrators.
 
 ## Setup Evidence
 
 - Private production-facing repository created from the former clean-staging repository.
 - Build-lab repository renamed away from the production-facing repository name.
 - Production-facing repository renamed to `MaverickHQ/obsidian-vault-reader`.
-- Visibility verified as private.
+- Visibility verified as public.
 - Default branch verified as `main`.
-- Description verified as `Focused speed reading for Obsidian notes.`
+- Description verified as `Focused speed reading for Obsidian notes with in-note highlighting.`
 - Issues verified as enabled.
 - Wiki verified as disabled.
 - Topics verified: `markdown`, `obsidian-plugin`, `reading`, `rsvp`, `speed-reading`, `typescript`.
 - Dependency vulnerability alerts were enabled through GitHub.
 - Dependabot configuration is present in `.github/dependabot.yml`.
-- Branch protection is pending because GitHub requires either public visibility or an account feature upgrade for this repository state.
-- Private vulnerability reporting could not be enabled through the available API while the repository is private; verify this manually before final public submission.
+- Branch protection verified on `main` with required `quality` status check, strict status checks, admin enforcement, no force-pushes, and no branch deletion.
+- Private vulnerability reporting verified as enabled.
 - Initial history shape verified as a single root commit named `Initial public release candidate`.
 - Public-facing docs intentionally avoid recording the private build-lab repository URL.
 
 ## Release Gate
 
-Before visibility changes from private to public:
+Before the Obsidian Community Plugin submission PR is opened:
 
 - Run `npm run verify:clean-tree`.
 - Confirm the production-facing repository has one clean initial commit and no private development history.

@@ -24,7 +24,9 @@ describe("community plugin submission policy", () => {
     expect(submission).toContain(`"id": "${manifest.id}"`);
     expect(submission).toContain(`"name": "${manifest.name}"`);
     expect(submission).toContain(`"author": "${manifest.author}"`);
-    expect(submission).toContain(`"description": "${manifest.description}"`);
+    expect(submission).toContain(
+      `"description": "${manifest.description} - This plugin has not been manually reviewed by Obsidian staff."`,
+    );
     expect(submission).toContain(`"repo": "${repo}"`);
     expect(manifest.description).toContain("speed reading");
     expect(manifest.description).not.toMatch(/\bRSVP\b/i);
@@ -41,11 +43,13 @@ describe("community plugin submission policy", () => {
     expect(submission).toContain(`Checksum evidence: ${releaseChecksumFileName}`);
   });
 
-  it("keeps final submission blocked until public visibility and manual QA are complete", () => {
+  it("records that final pre-PR visibility, release QA, and GitHub safety gates are complete", () => {
     const submission = readText("docs/community-plugin-submission.md");
 
-    expect(submission).toContain("Repository visibility must be public before the PR is opened.");
-    expect(submission).toContain("Manual clean-vault Obsidian QA must pass before submission.");
+    expect(submission).toContain("Repository visibility is public.");
+    expect(submission).toContain("Manual clean-vault Obsidian QA passed from release assets.");
+    expect(submission).toContain("Branch protection is enabled on `main`.");
+    expect(submission).toContain("Private vulnerability reporting is enabled.");
     expect(submission).toContain(
       "No `obsidianmd/obsidian-releases` PR is opened during this phase.",
     );

@@ -98,18 +98,25 @@ Before the repository is made public or submitted to the Obsidian Community Plug
 - Keep GitHub Dependabot alerts enabled.
 - Keep GitHub private vulnerability reporting enabled for sensitive reports.
 
-Current repository verification on 2026-06-15: the repository is private, the default branch is `main`, Issues are enabled, and GitHub branch protection returned `403` because the feature requires GitHub Pro or a public repository for this repo state. Treat branch protection and private vulnerability reporting as required public-release switches before submission.
+Current repository verification on 2026-07-03: the repository is public, the default branch is `main`, Issues are enabled, branch protection is enabled with the `quality` required status check, and private vulnerability reporting is enabled.
 
 ## Public Review Checklist
 
-- [ ] Confirm `npm run format:check` passes.
-- [ ] Confirm `npm run lint` passes.
-- [ ] Confirm `npm run test` passes.
-- [ ] Confirm `npm run build:release` passes.
-- [ ] Confirm `npm audit` has no high or critical unresolved findings, or document justified exceptions.
-- [ ] Confirm `bash tests/no-secrets.sh` finds no high-confidence secret signatures.
-- [ ] Confirm Dependabot is enabled for npm and GitHub Actions.
-- [ ] Confirm branch protection and private vulnerability reporting are enabled before public release.
-- [ ] Confirm runtime source contains no `fetch`, `XMLHttpRequest`, `WebSocket`, `EventSource`, or `navigator.sendBeacon` usage.
-- [ ] Confirm runtime reader rendering contains no unsafe HTML insertion.
-- [ ] Confirm README, release notes, and community QA docs state the local-first/no telemetry/no backend contract.
+- [x] Confirm `npm run format:check` passes.
+- [x] Confirm `npm run lint` passes.
+- [x] Confirm `npm run test` passes.
+- [x] Confirm `npm run build:release` passes.
+- [x] Confirm `npm audit` has no high or critical unresolved findings, or document justified exceptions.
+- [x] Confirm `bash tests/no-secrets.sh` finds no high-confidence secret signatures.
+- [x] Confirm Dependabot is enabled for npm and GitHub Actions.
+- [x] Confirm branch protection and private vulnerability reporting are enabled before public release.
+- [x] Confirm runtime source contains no `fetch`, `XMLHttpRequest`, `WebSocket`, `EventSource`, or `navigator.sendBeacon` usage.
+- [x] Confirm runtime reader rendering contains no unsafe HTML insertion.
+- [x] Confirm README, release notes, and community QA docs state the local-first/no telemetry/no backend contract.
+
+## Public Review Evidence
+
+- 2026-07-03: `npm run verify:release` passed, covering format, lint, tests, release build, release packaging, release e2e install smoke test, high-severity npm audit, and tracked-file secret scan.
+- 2026-07-03: `npm run test -- --coverage` passed with 65 test files and 245 tests.
+- 2026-07-03: source-only scans found no runtime use of `fetch`, `XMLHttpRequest`, `WebSocket`, `EventSource`, `navigator.sendBeacon`, `insertAdjacentHTML`, non-empty `innerHTML` assignment, `outerHTML` assignment, `eval`, or `new Function`.
+- 2026-07-03: GitHub repository settings verified public visibility, branch protection on `main`, dependency visibility through Dependabot configuration, and private vulnerability reporting.

@@ -1937,44 +1937,52 @@
 - From `release/clean-public-tree`, `npm ci` passed.
 - From `release/clean-public-tree`, `npm run package:release` passed and generated `release/0.1.0`.
 - From `release/clean-public-tree`, `npm run test:e2e:release` passed: 1 file, 1 test.
-- Production-facing private repo `MaverickHQ/obsidian-vault-reader` refreshed with one clean root commit including submission docs/tests.
+- Production-facing repo `MaverickHQ/obsidian-vault-reader` refreshed with one clean root commit including submission docs/tests.
 - Private GitHub Release created: `https://github.com/MaverickHQ/obsidian-vault-reader/releases/tag/0.1.0`.
 - GitHub Release verified: tag `0.1.0`, title `Vault Reader 0.1.0`, not draft, not prerelease.
 - Release assets verified: `main.js`, `manifest.json`, `styles.css`, and `SHA256SUMS`.
 - Release tag `0.1.0` points to the current production-facing clean root commit.
 - Community plugin listing entry prepared in `docs/community-plugin-submission.md`.
+- Production-facing repo visibility verified as public.
+- Manual clean-vault Obsidian QA from GitHub Release assets passed and is recorded in `docs/community-plugin-qa.md`.
+- Branch protection verified on `main`: required `quality` status check, strict status checks, admin enforcement, force-pushes disabled, and branch deletion disabled.
+- Private vulnerability reporting verified as enabled.
+- GitHub About metadata verified: description, topics, and public repo URL are aligned with the release copy.
+- `npm run verify:release` passed from the current working tree: format, lint, unit/integration tests, release build, release packaging, release e2e install smoke test, `npm audit --audit-level=high`, and tracked-file secret scan.
+- `npm run test -- --coverage` passed: 65 test files, 245 tests, statements 89.51%, branches 80.09%, functions 92.55%, lines 89.62%.
+- Current upstream `obsidianmd/obsidian-releases` metadata checked: default branch is `master`, plugin listing file is `community-plugins.json`, `vault-reader` ID is not present, and `MaverickHQ/obsidian-vault-reader` repo is not present.
+- Prepared a minimal append-only upstream patch for `community-plugins.json` at `/private/tmp/vault-reader-obsidian-releases.patch`; no external PR was opened.
 - BRAT/public beta remains optional and deferred unless manual QA finds risk.
+- Screenshot/GIF capture remains recommended for README, launch posts, and community discussion, but is not a blocker for the Obsidian release metadata PR.
 - Process note: the community-submission policy test and doc were added in the same edit, so a separate failing RED run was not captured for that specific test; earlier release-submission dry-run policy captured RED for missing submission documentation.
 
 **Still required before opening the Obsidian submission PR:**
 
-- Production-facing repo visibility must be switched from private to public.
-- Manual clean-vault Obsidian QA must pass from release assets.
-- Branch protection and private vulnerability reporting must be revisited after public visibility is enabled.
 - No `obsidianmd/obsidian-releases` PR has been opened yet.
+- Open the `obsidianmd/obsidian-releases` PR from the prepared `community-plugins.json` change.
 
-**Closeout validation evidence required:**
+**Closeout validation evidence recorded:**
 
-- `npm run format:check`
-- `npm run lint`
-- `npm run test`
-- `npm run test -- --coverage`
-- `npm run build:release`
-- `npm run package:release`
-- `npm run test:e2e:release`
-- `npm audit`
-- `bash tests/no-secrets.sh`
-- Manual clean-vault Obsidian QA completed and recorded
-- Security/public-review checklist completed and recorded
-- README/demo/promotion package reviewed
-- GitHub release candidate created or dry-run documented
+- [x] `npm run format:check`
+- [x] `npm run lint`
+- [x] `npm run test`
+- [x] `npm run test -- --coverage`
+- [x] `npm run build:release`
+- [x] `npm run package:release`
+- [x] `npm run test:e2e:release`
+- [x] `npm audit`
+- [x] `bash tests/no-secrets.sh`
+- [x] Manual clean-vault Obsidian QA completed and recorded
+- [x] Security/public-review checklist completed and recorded
+- [x] README/demo/promotion package reviewed
+- [x] GitHub release candidate created and verified
 
 **Release gate for community submission:**
 
-- [ ] Phase 3 tasks are complete and validated, or explicit deferrals are documented in `docs/roadmap.md`.
-- [ ] No blocker/high security, deployment, operational, performance, or functional findings remain unresolved.
-- [ ] The repo is ready to be made public before the Obsidian submission PR is opened.
-- [ ] RSVP Nano export, BYOK AI, paid licensing, and device flashing remain deferred to backlog.
+- [x] Phase 3 tasks are complete and validated, or explicit deferrals are documented in `docs/roadmap.md`.
+- [x] No blocker/high security, deployment, operational, performance, or functional findings remain unresolved.
+- [x] The repo is public and ready before the Obsidian submission PR is opened.
+- [x] RSVP Nano export, BYOK AI, paid licensing, and device flashing remain deferred to backlog.
 
 ## Backlog Phase A: RSVP Nano Export (Deferred)
 
