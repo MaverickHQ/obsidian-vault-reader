@@ -11,12 +11,12 @@ function readText(relativePath: string): string {
 }
 
 describe("public repository readiness policy", () => {
-  it("documents the private production-facing repository and one-commit history strategy", () => {
+  it("documents the public production-facing repository and one-commit history strategy", () => {
     const readiness = readText("docs/public-repo-readiness.md");
 
     expect(readiness).toContain("# Public Repository Readiness");
     expect(readiness).toContain(`Production-facing repository: ${productionRepoUrl}`);
-    expect(readiness).toContain("Visibility: private until final public-release approval.");
+    expect(readiness).toContain("Visibility: public.");
     expect(readiness).toContain(
       "History strategy: one clean initial commit from release/clean-public-tree.",
     );
@@ -31,12 +31,12 @@ describe("public repository readiness policy", () => {
     const readiness = readText("docs/public-repo-readiness.md");
 
     for (const requiredText of [
-      "Description: Focused speed reading for Obsidian notes.",
+      "Description: Focused speed reading for Obsidian notes with in-note highlighting.",
       "Topics: obsidian-plugin, speed-reading, rsvp, markdown, reading, typescript",
       "Issues enabled",
       "Dependabot enabled",
-      "Private vulnerability reporting enabled when available",
-      "Branch protection planned for main",
+      "Private vulnerability reporting enabled",
+      "Branch protection enabled for main",
     ]) {
       expect(readiness).toContain(requiredText);
     }
