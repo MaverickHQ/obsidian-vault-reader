@@ -1,7 +1,6 @@
 export const releaseAssetNames = ["main.js", "manifest.json", "styles.css"];
-export const releaseChecksumFileName = "SHA256SUMS";
 
-const allowedReleaseEntries = new Set([...releaseAssetNames, releaseChecksumFileName]);
+const allowedReleaseEntries = new Set(releaseAssetNames);
 
 export function validateReleaseMetadata({ manifest, packageJson, versions }) {
   assert(/^\d+\.\d+\.\d+$/.test(manifest.version), "manifest version must use x.y.z semver.");
@@ -26,26 +25,6 @@ export function assertReleaseDirectoryEntries(entries) {
   for (const requiredEntry of allowedReleaseEntries) {
     assert(entries.includes(requiredEntry), `Missing release artifact: ${requiredEntry}`);
   }
-}
-
-export function formatChecksumLines(checksums) {
-  assert(
-    checksums.length === releaseAssetNames.length,
-    "Release checksums must cover exactly the shipped release assets.",
-  );
-
-  const checksumByAssetName = new Map(
-    checksums.map((checksum) => [checksum.assetName, checksum.sha256]),
-  );
-
-  return `${releaseAssetNames
-    .map((assetName) => {
-      const sha256 = checksumByAssetName.get(assetName);
-      assert(typeof sha256 === "string", `Missing checksum for release asset: ${assetName}`);
-      assert(/^[a-f0-9]{64}$/.test(sha256), `Invalid sha256 for release asset: ${assetName}`);
-      return `${sha256}  ${assetName}`;
-    })
-    .join("\n")}\n`;
 }
 
 function assert(condition, message) {

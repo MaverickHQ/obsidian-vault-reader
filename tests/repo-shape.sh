@@ -3,6 +3,7 @@ set -euo pipefail
 
 required_paths=(
   ".github/workflows/ci.yml"
+  ".github/workflows/release.yml"
   ".gitignore"
   ".prettierignore"
   ".prettierrc.json"

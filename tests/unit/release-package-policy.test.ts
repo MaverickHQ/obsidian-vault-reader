@@ -2,7 +2,6 @@ import { describe, expect, it } from "vitest";
 
 import {
   assertReleaseDirectoryEntries,
-  formatChecksumLines,
   releaseAssetNames,
   validateReleaseMetadata,
 } from "../../scripts/release-package-policy.mjs";
@@ -15,16 +14,10 @@ describe("release package policy", () => {
     ).toThrow("Unexpected release artifact: debug.log");
   });
 
-  it("formats checksum lines for exactly the shipped assets", () => {
-    expect(
-      formatChecksumLines([
-        { assetName: "main.js", sha256: "a".repeat(64) },
-        { assetName: "manifest.json", sha256: "b".repeat(64) },
-        { assetName: "styles.css", sha256: "c".repeat(64) },
-      ]),
-    ).toBe(
-      `${"a".repeat(64)}  main.js\n${"b".repeat(64)}  manifest.json\n${"c".repeat(64)}  styles.css\n`,
-    );
+  it("rejects unsupported release sidecar files", () => {
+    expect(() =>
+      assertReleaseDirectoryEntries(["main.js", "manifest.json", "styles.css", "SHA256SUMS"]),
+    ).toThrow("Unexpected release artifact: SHA256SUMS");
   });
 
   it("rejects version drift before package files are copied", () => {

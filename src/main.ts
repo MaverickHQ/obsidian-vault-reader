@@ -58,30 +58,26 @@ export default class VaultReaderPlugin extends Plugin {
     );
 
     this.addCommand({
-      id: "vault-reader-start-session",
+      id: "start-session",
       name: VAULT_READER_COPY.commands.startNoteSessionName,
       callback: async () => {
         await this.startCurrentNoteSession();
       },
     });
     this.addCommand({
-      id: "vault-reader-restart-current-note",
+      id: "restart-current-note",
       name: VAULT_READER_COPY.commands.restartCurrentNoteName,
       callback: async () => {
         await this.restartCurrentReaderSession();
       },
     });
     this.addCommand({
-      id: "vault-reader-toggle-play-pause",
+      id: "toggle-play-pause",
       name: VAULT_READER_COPY.commands.togglePlayPauseName,
       callback: async () => {
         await this.toggleCurrentReaderPlayback();
       },
     });
-  }
-
-  async onunload(): Promise<void> {
-    this.app.workspace.detachLeavesOfType(VAULT_READER_VIEW_TYPE);
   }
 
   private async activateReaderView(): Promise<VaultReaderSessionView | null> {

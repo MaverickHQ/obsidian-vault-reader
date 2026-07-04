@@ -510,7 +510,9 @@ export class VaultReaderView extends ItemView {
   private refreshPanelZoomBounds(): void {
     const bounds = this.calculatePanelZoomBounds(this.settings.panelZoom);
     this.resolvedPanelZoom = bounds.value;
-    this.contentEl.style.setProperty("--vault-reader-shell-scale", String(bounds.value / 100));
+    this.contentEl.setCssProps({
+      "--vault-reader-shell-scale": String(bounds.value / 100),
+    });
     this.applyPanelZoomControlBounds(bounds);
   }
 
@@ -541,13 +543,13 @@ export class VaultReaderView extends ItemView {
     }
 
     const priorScale = this.contentEl.style.getPropertyValue("--vault-reader-shell-scale");
-    this.contentEl.style.setProperty("--vault-reader-shell-scale", "1");
+    this.contentEl.setCssProps({
+      "--vault-reader-shell-scale": "1",
+    });
     const rect = this.elements.shellEl.getBoundingClientRect();
-    if (priorScale.length > 0) {
-      this.contentEl.style.setProperty("--vault-reader-shell-scale", priorScale);
-    } else {
-      this.contentEl.style.removeProperty("--vault-reader-shell-scale");
-    }
+    this.contentEl.setCssProps({
+      "--vault-reader-shell-scale": priorScale.length > 0 ? priorScale : "1",
+    });
 
     return {
       width: rect.width,

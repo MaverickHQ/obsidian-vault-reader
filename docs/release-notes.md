@@ -1,5 +1,24 @@
 # Release Notes
 
+## 0.1.2 - 2026-07-04
+
+### Automated Review Release And Source Compliance
+
+Focused speed reading for notes, local-first, with optional in-note follow-along highlight.
+
+- Removed unsupported `SHA256SUMS` sidecar files from the release package so GitHub Releases contain only `main.js`, `manifest.json`, and `styles.css`.
+- Added a tag-based GitHub release workflow that verifies the release, publishes supported assets, and creates artifact attestations for release provenance.
+- Removed leaf detachment from plugin unload to preserve user pane placement across plugin reloads.
+- Shortened command IDs to Obsidian-style plugin-local identifiers while keeping user-facing command names unchanged.
+- Replaced direct reviewed style and heading patterns with Obsidian-compatible APIs.
+- Added explicit CodeMirror runtime dependencies for source-highlight extension imports.
+
+### Release And Install Contract
+
+- `manifest.json`, `package.json`, and `versions.json` must agree on version `0.1.2`.
+- The GitHub release tag must match `manifest.json` exactly.
+- The release package must include only `main.js`, `manifest.json`, and `styles.css`; provenance is supplied by GitHub artifact attestations.
+
 ## 0.1.1 - 2026-07-04
 
 ### Automated Review Metadata Fix

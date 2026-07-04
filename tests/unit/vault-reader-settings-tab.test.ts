@@ -33,6 +33,7 @@ describe("VaultReaderSettingsTab", () => {
           value: string | null;
           onChangeCallback: ((value: string) => void) | null;
         }>;
+        heading: boolean;
       }>;
     };
     SettingMock.reset();
@@ -52,7 +53,11 @@ describe("VaultReaderSettingsTab", () => {
 
     tab.display();
 
-    expect(SettingMock.created.map((setting) => setting.name)).toEqual([
+    expect(SettingMock.created[0]?.name).toBe("Vault Reader");
+    expect(SettingMock.created[0]?.heading).toBe(true);
+    const controls = SettingMock.created.slice(1);
+
+    expect(controls.map((setting) => setting.name)).toEqual([
       "Default reading speed",
       "Show focus letter",
       "Open reader in",
@@ -62,16 +67,16 @@ describe("VaultReaderSettingsTab", () => {
       "Highlight current word in note",
       "Highlight colour",
     ]);
-    expect(SettingMock.created.every((setting) => setting.description.length > 12)).toBe(true);
-    expect(SettingMock.created[0]?.sliders[0]?.limits).toEqual([100, 600, 10]);
-    expect(SettingMock.created[0]?.sliders[0]?.value).toBe(300);
-    expect(SettingMock.created[2]?.dropdowns[0]?.options).toEqual({
+    expect(controls.every((setting) => setting.description.length > 12)).toBe(true);
+    expect(controls[0]?.sliders[0]?.limits).toEqual([100, 600, 10]);
+    expect(controls[0]?.sliders[0]?.value).toBe(300);
+    expect(controls[2]?.dropdowns[0]?.options).toEqual({
       "split-right": "Right split panel",
       tab: "New tab",
     });
 
-    SettingMock.created[0]?.sliders[0]?.onChangeCallback?.(1_000);
-    SettingMock.created[2]?.dropdowns[0]?.onChangeCallback?.("tab");
+    controls[0]?.sliders[0]?.onChangeCallback?.(1_000);
+    controls[2]?.dropdowns[0]?.onChangeCallback?.("tab");
     await Promise.resolve();
 
     expect(updates).toEqual([{ defaultWpm: 600 }, { presentationMode: "tab" }]);

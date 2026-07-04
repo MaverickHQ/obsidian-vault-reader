@@ -10,8 +10,8 @@ Use this document to prove that the packaged plugin works from release assets, n
 
 - [ ] Run `npm run package:release`.
 - [ ] Run `npm run test:e2e:release`.
-- [ ] Confirm `release/0.1.1` contains `main.js`, `manifest.json`, `styles.css`, and `SHA256SUMS`.
-- [ ] Confirm `SHA256SUMS` matches the packaged release assets.
+- [ ] Confirm `release/0.1.2` contains only `main.js`, `manifest.json`, and `styles.css`.
+- [ ] Confirm the GitHub Release workflow creates artifact attestations for `main.js`, `manifest.json`, and `styles.css`.
 - [ ] Confirm generated release assets are not tracked by git.
 
 ## Clean Temporary Vault
@@ -77,7 +77,7 @@ Validate the reader against notes that include:
 | -------- | ---------------- | -------------- | ---------------------------- | ---------------- | ---------- | ---------------- |
 | macOS    | Not recorded     | 0.1.0          | `fixtures/manual-test-vault` | User-confirmed   | 2026-06-21 | Pass             |
 | macOS    | Not recorded     | 0.1.0          | GitHub Release assets        | User-confirmed   | 2026-07-03 | Pass             |
-| macOS    | Pending          | 0.1.1          | GitHub Release assets        | Pending          | TBD        | Pending          |
+| macOS    | Pending          | 0.1.2          | GitHub Release assets        | Pending          | TBD        | Pending          |
 | Windows  | Not yet verified | 0.1.0          | release package              | Community-needed | TBD        | Not yet verified |
 | Linux    | Not yet verified | 0.1.0          | release package              | Community-needed | TBD        | Not yet verified |
 

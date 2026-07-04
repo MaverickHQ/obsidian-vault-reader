@@ -1,7 +1,7 @@
 {
   "id": "vault-reader",
   "name": "Vault Reader",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "minAppVersion": "1.5.0",
   "description": "Focused speed reading for notes with in-note highlighting.",
   "author": "MaverickHQ",

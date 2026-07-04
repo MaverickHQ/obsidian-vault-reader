@@ -25,11 +25,6 @@ for artifact in "${release_artifacts[@]}"; do
   fi
 done
 
-if [[ ! -s "${release_dir}/SHA256SUMS" ]]; then
-  echo "Missing or empty release checksum file: ${release_dir}/SHA256SUMS" >&2
-  exit 1
-fi
-
 cmp --silent manifest.json "${release_dir}/manifest.json"
 cmp --silent styles.css "${release_dir}/styles.css"
 

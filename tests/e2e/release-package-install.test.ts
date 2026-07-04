@@ -1,4 +1,3 @@
-import crypto from "node:crypto";
 import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
@@ -8,11 +7,7 @@ import {
   installReleaseCandidateToVault,
   validateReleaseCandidateDirectory,
 } from "../../scripts/release-candidate-validation.mjs";
-import { formatChecksumLines, releaseAssetNames } from "../../scripts/release-package-policy.mjs";
-
-async function sha256(content: string): Promise<string> {
-  return crypto.createHash("sha256").update(content).digest("hex");
-}
+import { releaseAssetNames } from "../../scripts/release-package-policy.mjs";
 
 describe("release package install E2E", () => {
   it("validates and installs the packaged plugin into an Obsidian vault plugin directory", async () => {
@@ -31,20 +26,13 @@ describe("release package install E2E", () => {
       "styles.css": ".vault-reader-view { display: block; }",
     };
 
-    const checksums = [];
     for (const assetName of releaseAssetNames) {
       const content = assetContents[assetName];
       await fs.writeFile(path.join(releaseDir, assetName), content, "utf8");
-      checksums.push({
-        assetName,
-        sha256: await sha256(content),
-      });
     }
-    await fs.writeFile(path.join(releaseDir, "SHA256SUMS"), formatChecksumLines(checksums), "utf8");
 
     await expect(validateReleaseCandidateDirectory(releaseDir)).resolves.toEqual({
       assetNames: ["main.js", "manifest.json", "styles.css"],
-      checksumFileName: "SHA256SUMS",
     });
 
     const installDir = await installReleaseCandidateToVault({
@@ -55,7 +43,6 @@ describe("release package install E2E", () => {
 
     expect(installDir).toBe(path.join(vaultRoot, ".obsidian", "plugins", "vault-reader"));
     await expect(fs.readdir(installDir)).resolves.toEqual([
-      "SHA256SUMS",
       "main.js",
       "manifest.json",
       "styles.css",

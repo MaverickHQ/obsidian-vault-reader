@@ -9,29 +9,29 @@ export function renderReaderViewShell(contentEl: HTMLElement): ReaderViewElement
   contentEl.className = "vault-reader-view";
   contentEl.tabIndex = 0;
 
-  const shellEl = document.createElement("div");
+  const shellEl = createElement("div");
   shellEl.className = "vault-reader-shell";
   contentEl.appendChild(shellEl);
 
-  const headerEl = document.createElement("div");
+  const headerEl = createElement("div");
   headerEl.className = "vault-reader-shell-header vault-reader-header";
   shellEl.appendChild(headerEl);
 
-  const titleEl = document.createElement("div");
+  const titleEl = createElement("div");
   titleEl.className = "vault-reader-title";
   headerEl.appendChild(titleEl);
 
-  const sourceLabelEl = document.createElement("div");
+  const sourceLabelEl = createElement("div");
   sourceLabelEl.className = "vault-reader-source-label";
   headerEl.appendChild(sourceLabelEl);
 
-  const sourceMismatchEl = document.createElement("div");
+  const sourceMismatchEl = createElement("div");
   sourceMismatchEl.className = "vault-reader-source-mismatch";
   sourceMismatchEl.setAttribute("role", "status");
   sourceMismatchEl.hidden = true;
   headerEl.appendChild(sourceMismatchEl);
 
-  const sourceMismatchTextEl = document.createElement("span");
+  const sourceMismatchTextEl = createElement("span");
   sourceMismatchTextEl.textContent = "Active note changed.";
   sourceMismatchEl.appendChild(sourceMismatchTextEl);
 
@@ -42,12 +42,12 @@ export function renderReaderViewShell(contentEl: HTMLElement): ReaderViewElement
   );
   sourceMismatchEl.appendChild(readActiveNoteButtonEl);
 
-  const onboardingEl = document.createElement("div");
+  const onboardingEl = createElement("div");
   onboardingEl.className = "vault-reader-onboarding";
   onboardingEl.setAttribute("role", "note");
   shellEl.appendChild(onboardingEl);
 
-  const onboardingTextEl = document.createElement("p");
+  const onboardingTextEl = createElement("p");
   onboardingTextEl.className = "vault-reader-onboarding-text";
   onboardingEl.appendChild(onboardingTextEl);
 
@@ -58,43 +58,43 @@ export function renderReaderViewShell(contentEl: HTMLElement): ReaderViewElement
   );
   onboardingEl.appendChild(onboardingDismissButtonEl);
 
-  const progressEl = document.createElement("div");
+  const progressEl = createElement("div");
   progressEl.className = "vault-reader-progress";
   headerEl.appendChild(progressEl);
 
-  const stateEl = document.createElement("div");
+  const stateEl = createElement("div");
   stateEl.className = "vault-reader-state";
   headerEl.appendChild(stateEl);
 
-  const bodyEl = document.createElement("div");
+  const bodyEl = createElement("div");
   bodyEl.className = "vault-reader-shell-body";
   shellEl.appendChild(bodyEl);
 
-  const tokenWrapEl = document.createElement("div");
+  const tokenWrapEl = createElement("div");
   tokenWrapEl.className = "vault-reader-token-wrap";
   bodyEl.appendChild(tokenWrapEl);
 
-  const emptyStateEl = document.createElement("p");
+  const emptyStateEl = createElement("p");
   emptyStateEl.className = "vault-reader-empty-state";
   tokenWrapEl.appendChild(emptyStateEl);
 
-  const tokenEl = document.createElement("div");
+  const tokenEl = createElement("div");
   tokenEl.className = "vault-reader-token";
   tokenWrapEl.appendChild(tokenEl);
 
-  const tokenPrefixEl = document.createElement("span");
+  const tokenPrefixEl = createElement("span");
   tokenPrefixEl.className = "vault-reader-token-prefix";
   tokenEl.appendChild(tokenPrefixEl);
 
-  const tokenFocusEl = document.createElement("span");
+  const tokenFocusEl = createElement("span");
   tokenFocusEl.className = "vault-reader-token-focus";
   tokenEl.appendChild(tokenFocusEl);
 
-  const tokenSuffixEl = document.createElement("span");
+  const tokenSuffixEl = createElement("span");
   tokenSuffixEl.className = "vault-reader-token-suffix";
   tokenEl.appendChild(tokenSuffixEl);
 
-  const controlsEl = document.createElement("div");
+  const controlsEl = createElement("div");
   controlsEl.className = "vault-reader-shell-controls vault-reader-controls";
   bodyEl.appendChild(controlsEl);
 
@@ -114,7 +114,7 @@ export function renderReaderViewShell(contentEl: HTMLElement): ReaderViewElement
   const slowerButtonEl = createButton("vault-reader-btn", "−", "Decrease reading speed");
   controlsEl.appendChild(slowerButtonEl);
 
-  const wpmInputEl = document.createElement("input");
+  const wpmInputEl = createElement("input");
   wpmInputEl.type = "number";
   wpmInputEl.className = "vault-reader-wpm";
   wpmInputEl.min = "100";
@@ -236,7 +236,7 @@ function createButton(
   textContent = "",
   accessibleName = textContent,
 ): HTMLButtonElement {
-  const button = document.createElement("button");
+  const button = createElement("button");
   button.type = "button";
   button.className = className;
   button.textContent = textContent;
@@ -248,14 +248,14 @@ function createButton(
 }
 
 function createControlGroup(parentEl: HTMLElement): HTMLElement {
-  const groupEl = document.createElement("div");
+  const groupEl = createElement("div");
   groupEl.className = "vault-reader-control-group";
   parentEl.appendChild(groupEl);
   return groupEl;
 }
 
 function createControlLabel(textContent: string): HTMLElement {
-  const labelEl = document.createElement("span");
+  const labelEl = createElement("span");
   labelEl.className = "vault-reader-control-label";
   labelEl.textContent = textContent;
   return labelEl;
@@ -267,7 +267,7 @@ function createRangeInput(
   max: number,
   step: number,
 ): HTMLInputElement {
-  const input = document.createElement("input");
+  const input = createElement("input");
   input.type = "range";
   input.className = className;
   input.min = String(min);
@@ -282,7 +282,7 @@ function createNumberInput(
   max: number,
   step: number,
 ): HTMLInputElement {
-  const input = document.createElement("input");
+  const input = createElement("input");
   input.type = "number";
   input.className = className;
   input.min = String(min);
@@ -292,9 +292,15 @@ function createNumberInput(
 }
 
 function createValueOutput(textContent: string): HTMLOutputElement {
-  const output = document.createElement("output");
+  const output = createElement("output");
   output.className = "vault-reader-control-value";
   output.textContent = textContent;
   output.setAttribute("aria-live", "polite");
   return output;
+}
+
+function createElement<K extends keyof HTMLElementTagNameMap>(
+  tagName: K,
+): HTMLElementTagNameMap[K] {
+  return activeDocument.createElement(tagName);
 }

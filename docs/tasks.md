@@ -1961,6 +1961,10 @@
 - Review fix prepared in `0.1.1`: manifest/package description changed to `Focused speed reading for notes with in-note highlighting.`, `versions.json` updated, and release notes added.
 - `npm run verify:release` passed for `0.1.1`: format, lint, 66 test files, 246 tests, release build, release packaging, release E2E install smoke test, high-severity npm audit, and tracked-file secret scan.
 - Packaged `release/0.1.1/manifest.json` verified with description `Focused speed reading for notes with in-note highlighting.` and no `Obsidian` word in the manifest description.
+- Public repo PR #7 merged on 2026-07-04 with required `quality` check passing.
+- Public `main` verified at `ef670d08b5c0eb587a4e3339fe873f13623a6ead` with manifest version `0.1.1` and compliant description.
+- GitHub Release `0.1.1` created: `https://github.com/MaverickHQ/obsidian-vault-reader/releases/tag/0.1.1`.
+- Release `0.1.1` assets verified: `main.js`, `manifest.json`, `styles.css`, and `SHA256SUMS`.
 - BRAT/public beta remains optional and deferred unless manual QA finds risk.
 - Screenshot/GIF capture remains recommended for README, launch posts, and community discussion, but is not a blocker for the Obsidian Community directory submission.
 - Process note: the community-submission policy test and doc were added in the same edit, so a separate failing RED run was not captured for that specific test; earlier release-submission dry-run policy captured RED for missing submission documentation.
@@ -1995,6 +1999,64 @@
 - [x] No blocker/high security, deployment, operational, performance, or functional findings remain unresolved.
 - [x] The repo is public and the Obsidian Community directory submission is live with automated review in progress.
 - [x] RSVP Nano export, BYOK AI, paid licensing, and device flashing remain deferred to backlog.
+
+#### 3.5.1 Automated Review Remediation For 0.1.2
+
+- [D] Remove unsupported release sidecar files from the release package.
+- [D] Add GitHub artifact attestations for release assets through the tag-based release workflow.
+- [D] Stop detaching reader leaves during plugin unload so user pane placement survives plugin reloads.
+- [D] Shorten command IDs to plugin-local identifiers while keeping user-facing command names stable.
+- [D] Replace reviewed direct style and heading patterns with Obsidian-compatible APIs.
+- [D] Add explicit CodeMirror dependencies for source-highlight imports.
+- [D] Add popout-safe DOM creation through `activeDocument`.
+- [D] Bump release metadata to `0.1.2`.
+- [D] [T] RED: add `tests/unit/obsidian-review-policy.test.ts` to fail on stale command IDs, unload leaf detachment, direct reviewed style/heading patterns, missing attestations workflow, and missing CodeMirror dependencies.
+- [D] [T] GREEN: update source, release scripts, workflow, metadata, and docs until focused review-policy tests pass.
+- [D] [T] REFACTOR: keep release assets defined by `releaseAssetNames` and share that policy between packaging and clean-vault install validation.
+
+**Suggested implementation files:**
+
+- `src/main.ts`
+- `src/reader/reader-view.ts`
+- `src/reader/view/reader-view-shell.ts`
+- `src/settings/vault-reader-settings-tab.ts`
+- `scripts/package-release.mjs`
+- `scripts/release-package-policy.mjs`
+- `scripts/release-candidate-validation.mjs`
+- `.github/workflows/release.yml`
+- `manifest.json`
+- `package.json`
+- `versions.json`
+
+**Suggested test files:**
+
+- `tests/unit/obsidian-review-policy.test.ts`
+- `tests/unit/release-package-policy.test.ts`
+- `tests/e2e/release-package-install.test.ts`
+- `tests/integration/plugin-commands.test.ts`
+- `tests/integration/start-session-command.test.ts`
+- `tests/unit/vault-reader-settings-tab.test.ts`
+
+**Acceptance tests:**
+
+- `release package contains only main.js, manifest.json, and styles.css`
+- `GitHub release workflow grants attestations: write and uses actions/attest-build-provenance`
+- `plugin onunload does not detach reader leaves`
+- `command IDs are start-session, restart-current-note, and toggle-play-pause`
+- `reader shell creates DOM through activeDocument`
+- `settings heading uses Setting#setHeading`
+- `CodeMirror state/view packages are declared as runtime dependencies`
+- `0.1.2 manifest/package/versions metadata is aligned`
+
+**Closeout validation evidence required:**
+
+- `npm run test -- tests/unit/obsidian-review-policy.test.ts tests/unit/release-package-policy.test.ts tests/e2e/release-package-install.test.ts tests/integration/plugin-commands.test.ts tests/integration/start-session-command.test.ts tests/unit/vault-reader-settings-tab.test.ts`
+- `npm run verify:release`
+- Public repo PR merged with passing CI.
+- Tag `0.1.2` pushed after the release workflow exists on public `main`.
+- GitHub Release `0.1.2` contains only `main.js`, `manifest.json`, and `styles.css`.
+- Artifact attestations verify for `main.js`, `manifest.json`, and `styles.css`.
+- Obsidian automated review is rerun against `0.1.2`.
 
 ### 3.6 Launch Asset Package
 
