@@ -76,7 +76,7 @@ It is intentionally small for the first release: no backend, no telemetry, no ac
 
 ### GitHub Release
 
-Vault Reader `0.1.2` is the current community-plugin review candidate.
+Vault Reader `0.1.3` is the current community-plugin review candidate.
 
 Included:
 
