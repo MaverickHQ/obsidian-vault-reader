@@ -19,7 +19,7 @@ export class VaultReaderSettingsTab extends PluginSettingTab {
 
   display(): void {
     this.containerEl.empty();
-    this.containerEl.createEl("h2", { text: "Vault Reader" });
+    new Setting(this.containerEl).setName("Vault Reader").setHeading();
     this.containerEl.createEl("p", {
       text: "Set the defaults used when a new reading session starts. You can still change these controls inside the reader panel while reading.",
     });

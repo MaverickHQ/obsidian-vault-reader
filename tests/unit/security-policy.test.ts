@@ -52,7 +52,7 @@ describe("security policy", () => {
       "no credentials",
       "Obsidian plugin data",
       "textContent",
-      "SHA256SUMS",
+      "artifact attestations",
     ]) {
       expect(securityReview).toContain(expectedPromise);
     }

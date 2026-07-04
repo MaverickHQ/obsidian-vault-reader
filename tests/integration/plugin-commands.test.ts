@@ -58,19 +58,20 @@ describe("Vault Reader command palette polish", () => {
     expect(commands).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          id: "vault-reader-start-session",
+          id: "start-session",
           name: "Vault Reader: Start reading current note",
         }),
         expect.objectContaining({
-          id: "vault-reader-restart-current-note",
+          id: "restart-current-note",
           name: "Vault Reader: Restart current note from beginning",
         }),
         expect.objectContaining({
-          id: "vault-reader-toggle-play-pause",
+          id: "toggle-play-pause",
           name: "Vault Reader: Toggle play/pause",
         }),
       ]),
     );
+    expect(commands.every((command) => !command.id.startsWith("vault-reader-"))).toBe(true);
   });
 
   it("routes restart command through the active reader view action", async () => {
@@ -88,7 +89,7 @@ describe("Vault Reader command palette polish", () => {
       ),
     });
 
-    await findCommand(plugin, "vault-reader-restart-current-note").callback();
+    await findCommand(plugin, "restart-current-note").callback();
 
     expect(restartCurrentSession).toHaveBeenCalledTimes(1);
     expect(NoticeMock.messages).toEqual([]);
@@ -100,7 +101,7 @@ describe("Vault Reader command palette polish", () => {
       getLeavesOfType: vi.fn(() => []),
     });
 
-    await findCommand(plugin, "vault-reader-restart-current-note").callback();
+    await findCommand(plugin, "restart-current-note").callback();
 
     expect(NoticeMock.messages).toContain(
       "Open Vault Reader from a note before using the restart command.",
@@ -122,7 +123,7 @@ describe("Vault Reader command palette polish", () => {
       ),
     });
 
-    await findCommand(plugin, "vault-reader-toggle-play-pause").callback();
+    await findCommand(plugin, "toggle-play-pause").callback();
 
     expect(togglePlayPause).toHaveBeenCalledTimes(1);
     expect(NoticeMock.messages).toEqual([]);

@@ -83,10 +83,11 @@ Release safety is enforced through scripted checks:
 - `npm run check:repo-shape` prevents repo-shape drift before release.
 - `npm run check:release-artifacts` verifies required Obsidian release assets.
 - `npm run build:release` runs the release checks before packaging.
-- `scripts/package-release.mjs` produces `main.js`, `manifest.json`, `styles.css`, and `SHA256SUMS`.
+- `scripts/package-release.mjs` produces only `main.js`, `manifest.json`, and `styles.css`.
+- The tag-based GitHub release workflow publishes those assets and creates GitHub artifact attestations for release provenance.
 - Dependabot is configured for npm and GitHub Actions dependency update visibility.
 
-The release package must not include fixtures, test vault files, dotenv files, private keys, source maps, or unrelated source-tree content.
+The release package must not include fixtures, test vault files, checksum sidecars, dotenv files, private keys, source maps, or unrelated source-tree content.
 
 ## Public Repository Controls
 

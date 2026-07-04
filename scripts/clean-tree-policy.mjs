@@ -4,6 +4,7 @@ export const cleanTreeValidationCommand = "node scripts/verify-clean-tree.mjs";
 
 export const cleanTreeRequiredEntries = [
   ".github/workflows/ci.yml",
+  ".github/workflows/release.yml",
   ".gitignore",
   ".prettierignore",
   ".prettierrc.json",

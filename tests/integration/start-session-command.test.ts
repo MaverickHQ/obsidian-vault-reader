@@ -39,7 +39,7 @@ describe("start session command", () => {
       plugin as unknown as {
         commands: Array<{ id: string; callback: () => Promise<void> }>;
       }
-    ).commands.find((candidate) => candidate.id === "vault-reader-start-session");
+    ).commands.find((candidate) => candidate.id === "start-session");
 
     expect(command).toBeDefined();
     if (!command) {
@@ -189,7 +189,7 @@ describe("start session command", () => {
       plugin as unknown as {
         commands: Array<{ id: string; callback: () => Promise<void> }>;
       }
-    ).commands.find((candidate) => candidate.id === "vault-reader-start-session");
+    ).commands.find((candidate) => candidate.id === "start-session");
     expect(command).toBeDefined();
     if (!command) {
       return;
@@ -282,7 +282,7 @@ describe("start session command", () => {
       plugin as unknown as {
         commands: Array<{ id: string; callback: () => Promise<void> }>;
       }
-    ).commands.find((candidate) => candidate.id === "vault-reader-start-session");
+    ).commands.find((candidate) => candidate.id === "start-session");
     expect(command).toBeDefined();
     if (!command) {
       return;

@@ -14,6 +14,16 @@ export class ItemView {
   }
 }
 
+export const activeDocument = {
+  createElement: (tagName: string) => {
+    if (typeof document !== "undefined") {
+      return document.createElement(tagName);
+    }
+
+    return new MockElement(tagName);
+  },
+} as Document;
+
 export class Notice {
   static messages: string[] = [];
 
@@ -63,6 +73,7 @@ export class Setting {
   sliders: SliderComponent[] = [];
   toggles: ToggleComponent[] = [];
   dropdowns: DropdownComponent[] = [];
+  heading = false;
 
   constructor(public readonly containerEl: unknown) {
     Setting.created.push(this);
@@ -79,6 +90,11 @@ export class Setting {
 
   setDesc(description: string): this {
     this.description = description;
+    return this;
+  }
+
+  setHeading(): this {
+    this.heading = true;
     return this;
   }
 

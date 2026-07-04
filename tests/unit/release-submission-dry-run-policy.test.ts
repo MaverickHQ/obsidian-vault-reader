@@ -3,10 +3,7 @@ import path from "node:path";
 import manifest from "../../manifest.json";
 import packageJson from "../../package.json";
 import versions from "../../versions.json";
-import {
-  releaseAssetNames,
-  releaseChecksumFileName,
-} from "../../scripts/release-package-policy.mjs";
+import { releaseAssetNames } from "../../scripts/release-package-policy.mjs";
 import { describe, expect, it } from "vitest";
 
 const root = path.resolve(import.meta.dirname, "../..");
@@ -31,7 +28,7 @@ describe("release submission dry-run policy", () => {
     const dryRun = readText("docs/release-submission-dry-run.md");
 
     expect(dryRun).toContain(`Required assets: ${releaseAssetNames.join(", ")}`);
-    expect(dryRun).toContain(`Checksum evidence: ${releaseChecksumFileName}`);
+    expect(dryRun).toContain("Artifact attestations: main.js, manifest.json, styles.css");
 
     for (const excluded of [
       "tests",
@@ -50,6 +47,7 @@ describe("release submission dry-run policy", () => {
 
     expect(dryRun).toContain("npm run package:release");
     expect(dryRun).toContain("npm run test:e2e:release");
+    expect(dryRun).toContain("GitHub release workflow");
     expect(dryRun).toContain("clean-vault install smoke validation");
     expect(dryRun).toContain(".obsidian/plugins/vault-reader");
   });

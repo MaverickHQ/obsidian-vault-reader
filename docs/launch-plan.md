@@ -76,7 +76,7 @@ It is intentionally small for the first release: no backend, no telemetry, no ac
 
 ### GitHub Release
 
-Vault Reader `0.1.1` is the current community-plugin review candidate.
+Vault Reader `0.1.2` is the current community-plugin review candidate.
 
 Included:
 
@@ -85,7 +85,8 @@ Included:
 - blue and Claude-style orange accent themes
 - optional source-mode in-note highlight
 - local settings and per-note progress
-- release package with `main.js`, `manifest.json`, `styles.css`, and `SHA256SUMS`
+- release package with only `main.js`, `manifest.json`, and `styles.css`
+- GitHub artifact attestations for release provenance
 
 Deferred as future exploration: RSVP Nano export, BYOK AI, mobile support, and follow-scroll.
 

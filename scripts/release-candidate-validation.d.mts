@@ -1,6 +1,5 @@
 export interface ReleaseCandidateValidationSummary {
   assetNames: string[];
-  checksumFileName: string;
 }
 
 export interface ReleaseCandidateInstallInput {
