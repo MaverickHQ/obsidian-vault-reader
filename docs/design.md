@@ -21,7 +21,7 @@ See `docs/adr/0002-community-plugin-first-release.md` for the current scope deci
 - **Local-first trust:** Notes stay inside the vault. No network calls, telemetry, account flows, or hosted backend are part of the active runtime.
 - **Small boundaries:** Domain logic stays testable without a real Obsidian window wherever possible.
 - **Safe rendering:** Note-derived content is rendered as text, never as trusted HTML.
-- **Honest roadmap:** Deferred work stays documented but does not appear in active architecture diagrams or release tests.
+- **Honest scope:** Deferred work stays out of active architecture diagrams, release tests, and public launch promises.
 - **TDD by behavior:** Tests describe user-visible or release-critical behavior before implementation details.
 
 ## 3. Professional Repo Shape
@@ -150,7 +150,7 @@ The local developer loop is:
 
 The public release loop is:
 
-1. Confirm active docs and roadmap agree on scope.
+1. Confirm active docs and release scope agree.
 2. Run full automated validation.
 3. Build a release package.
 4. Install into a clean vault.

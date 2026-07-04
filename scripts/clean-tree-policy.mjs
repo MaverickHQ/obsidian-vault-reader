@@ -21,7 +21,6 @@ export const cleanTreeRequiredEntries = [
   "docs/public-history-review.md",
   "docs/release-notes.md",
   "docs/requirements.md",
-  "docs/roadmap.md",
   "docs/tasks.md",
   "eslint.config.mjs",
   "fixtures/manual-test-vault/README.md",

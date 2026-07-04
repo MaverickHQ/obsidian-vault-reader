@@ -25,7 +25,7 @@ describe("README public shape", () => {
     expect(readme).toContain("stores settings and reading progress locally");
   });
 
-  it("frames the public README around user value, install paths, and roadmap limits", () => {
+  it("frames the public README around user value, install paths, and release limits", () => {
     const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
 
     for (const section of [
@@ -35,7 +35,6 @@ describe("README public shape", () => {
       "## Install After Community Approval",
       "## How To Use",
       "## Known Limitations",
-      "## Roadmap",
     ]) {
       expect(readme).toContain(section);
     }
@@ -43,8 +42,7 @@ describe("README public shape", () => {
     expect(readme).toContain("fixtures/manual-test-vault");
     expect(readme).toContain("Vault Reader: Start reading current note");
     expect(readme).toContain("Obsidian Community Plugins");
-    expect(readme).toContain("RSVP Nano");
-    expect(readme).toContain("BYOK AI");
-    expect(readme).toContain("future exploration");
+    expect(readme).not.toContain("## Roadmap");
+    expect(readme).not.toContain("future exploration");
   });
 });

@@ -13,7 +13,7 @@ This document explains the active repository layout for public reviewers, future
 | `package.json`      | npm scripts, package metadata, and dependency list.                       |
 | `package-lock.json` | Locked dependency graph for reproducible installs.                        |
 | `styles.css`        | Runtime plugin styling shipped with releases.                             |
-| `README.md`         | Public product overview, installation, usage, privacy, and roadmap.       |
+| `README.md`         | Public product overview, installation, usage, privacy, and limitations.   |
 | `LICENSE`           | MIT license for the public project.                                       |
 | `SECURITY.md`       | Security reporting and supported-version policy.                          |
 | `CONTRIBUTING.md`   | TDD-first contribution and validation guidance.                           |
@@ -87,7 +87,6 @@ Use `npm run verify:release` before clean public repo export and before creating
 | `docs/design.md`                      | Active architecture for the community plugin release.                            |
 | `docs/tasks.md`                       | Phase plan, TDD tasks, validation evidence, and backlog.                         |
 | `docs/process.md`                     | Delivery process gates.                                                          |
-| `docs/roadmap.md`                     | Deferred work and future direction.                                              |
 | `docs/security-review.md`             | Security/public-review posture.                                                  |
 | `docs/community-plugin-qa.md`         | Manual Obsidian QA checklist.                                                    |
 | `docs/release-notes.md`               | Release contract and changelog.                                                  |

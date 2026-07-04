@@ -306,7 +306,7 @@
 
 **Release gate for Phase 2 start:**
 
-- [D] All P1/P2 review findings are closed or explicitly deferred with documented rationale in `docs/roadmap.md`.
+- [D] All P1/P2 review findings are closed or explicitly deferred with documented rationale in this task list.
 
 ## Phase 1.8: Reliability Closure (Post-1.7 Deep Review)
 
@@ -396,7 +396,7 @@
 
 **Release gate for Phase 2 start:**
 
-- [D] Phase 1.8 tasks are complete and validated, or explicit deferrals are documented in `docs/roadmap.md`.
+- [D] Phase 1.8 tasks are complete and validated, or explicit deferrals are documented in this task list.
 
 ## Phase 1.9: Release-Candidate Reliability (Post-1.8 Deep Review)
 
@@ -583,7 +583,7 @@
 
 **Release gate for Phase 2 start:**
 
-- [D] Phase 1.9 tasks are complete and validated, or explicit deferrals are documented in `docs/roadmap.md`.
+- [D] Phase 1.9 tasks are complete and validated, or explicit deferrals are documented in this task list.
 
 ## Phase 2: Exceptional Core And Paid Readiness
 
@@ -681,7 +681,7 @@
 
 **Release gate for active release-readiness work:**
 
-- [D] Phase 2 tasks are complete and validated, or explicit deferrals are documented in `docs/roadmap.md`.
+- [D] Phase 2 tasks are complete and validated, or explicit deferrals are documented in this task list.
 
 ## Phase 2.6: In-Note Follow-Along Highlight
 
@@ -771,7 +771,7 @@
 
 **Release gate for active release-readiness work:**
 
-- [D] Phase 2.6 tasks are complete and validated, or explicit deferrals are documented in `docs/roadmap.md`.
+- [D] Phase 2.6 tasks are complete and validated, or explicit deferrals are documented in this task list.
 
 ## Phase 2.7: Thermo-Nuclear Maintainability Remediation
 
@@ -1112,7 +1112,7 @@
 
 **Release gate for active release-readiness work:**
 
-- [D] Phase 2.7 tasks are complete and validated, or explicit deferrals are documented in `docs/roadmap.md`.
+- [D] Phase 2.7 tasks are complete and validated, or explicit deferrals are documented in this task list.
 - [D] No blocker or high thermo-nuclear findings remain unresolved.
 
 ## Phase 2.8: Restart From Beginning UX
@@ -1280,7 +1280,7 @@
 
 **Release gate for active release-readiness work:**
 
-- [D] Phase 2.8 restart behavior is complete and validated, or explicitly deferred in `docs/roadmap.md`.
+- [D] Phase 2.8 restart behavior is complete and validated, or explicitly deferred in this task list.
 - [D] Restart does not regress resume/progress persistence, playback controls, or in-note highlight.
 
 **Validation evidence (2026-06-13):**
@@ -1427,15 +1427,15 @@
 
 ### 3.4 Promotion Prep: README, Demo Assets, Launch Copy, And Feedback Loops
 
-- [D] Rewrite the README around user value, not implementation history: what it does, who it is for, how to install, how to use it, privacy, limitations, roadmap.
+- [D] Rewrite the README around user value, not implementation history: what it does, who it is for, how to install, how to use it, privacy, and limitations.
 - [D] Define high-quality screenshot/GIF plan showing the happy path: open note, start reader, play/pause, adjust WPM/zoom, use highlight, restart.
 - [D] Add a manual install section for testers before directory approval and a community-plugin install section for after approval.
 - [D] Draft Obsidian Forum Showcase copy, Obsidian Discord update copy, Reddit post copy, and a short GitHub release announcement.
 - [D] Add GitHub topics such as `obsidian-plugin`, `speed-reading`, `rsvp`, `markdown`, `reading`, and `typescript`.
 - [D] Define a feedback loop: issue labels, beta feedback template, known limitations, and what feedback is most useful.
 - [D] Define success metrics that do not require plugin telemetry: GitHub stars, release downloads, community plugin downloads after listing, issues opened/closed, and qualitative feedback.
-- [D] Keep the roadmap credible: device reader and BYOK AI appear as future exploration, not promised launch features.
-- [D] [T] RED: add failing docs/readme policy checks for required launch sections, asset references, install instructions, and roadmap/non-goal clarity.
+- [D] Keep launch copy credible: unshipped features do not appear as launch promises.
+- [D] [T] RED: add failing docs/readme policy checks for required launch sections, asset references, install instructions, and release-scope clarity.
 - [D] [T] GREEN: update README, release notes, and promotional drafts until checks pass.
 - [D] [T] REFACTOR: centralize launch copy snippets under docs so README stays concise.
 
@@ -1455,10 +1455,10 @@
 
 **Acceptance tests:**
 
-- `README contains value proposition, quick start, privacy, limitations, local install, and roadmap sections`
+- `README contains value proposition, quick start, privacy, limitations, and local install sections`
 - `README references demo assets that exist or intentionally links to external release media`
 - `launch plan includes forum, Discord, Reddit, GitHub release, and feedback channels`
-- `roadmap copy marks RSVP Nano and BYOK AI as future work, not current release functionality`
+- `public copy avoids marketing unshipped features as current release functionality`
 
 **Validation evidence (2026-06-15):**
 
@@ -1716,7 +1716,7 @@
 
 **Recommendation:** Keep this private repo as the working/build lab. Publish the community plugin from a fresh public repository or an explicitly orphaned public branch with one clean initial commit.
 
-**Why this exists:** The private Git history is useful for development but not useful for public review. Even if secret scans pass, the history reveals internal product strategy, paid-readiness discussion, device roadmap churn, reverted work, debugging attempts, and local workflow details. A clean public repo gives reviewers the best signal with the lowest leakage risk.
+**Why this exists:** The private Git history is useful for development but not useful for public review. Even if secret scans pass, the history reveals internal product strategy, paid-readiness discussion, device scope churn, reverted work, debugging attempts, and local workflow details. A clean public repo gives reviewers the best signal with the lowest leakage risk.
 
 #### 3.4.2.1 Private Working Repo Closeout
 
@@ -1995,7 +1995,7 @@
 
 **Release gate for community submission:**
 
-- [x] Phase 3 tasks are complete and validated, or explicit deferrals are documented in `docs/roadmap.md`.
+- [x] Phase 3 tasks are complete and validated, or explicit deferrals are documented in this task list.
 - [x] No blocker/high security, deployment, operational, performance, or functional findings remain unresolved.
 - [x] The repo is public and the Obsidian Community directory submission is live with automated review in progress.
 - [x] RSVP Nano export, BYOK AI, paid licensing, and device flashing remain deferred to backlog.
