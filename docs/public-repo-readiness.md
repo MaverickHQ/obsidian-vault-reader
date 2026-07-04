@@ -16,7 +16,7 @@ The production-facing repository is the review candidate for future public visib
 
 ## Repository Metadata
 
-Description: Focused speed reading for Obsidian notes with in-note highlighting.
+Description: Focused speed reading for notes with in-note highlighting.
 
 Topics: obsidian-plugin, speed-reading, rsvp, markdown, reading, typescript
 
@@ -46,7 +46,7 @@ Branch protection requires the `quality` status check on `main`, requires branch
 - Production-facing repository renamed to `MaverickHQ/obsidian-vault-reader`.
 - Visibility verified as public.
 - Default branch verified as `main`.
-- Description verified as `Focused speed reading for Obsidian notes with in-note highlighting.`
+- Description verified as `Focused speed reading for notes with in-note highlighting.`
 - Issues verified as enabled.
 - Wiki verified as disabled.
 - Topics verified: `markdown`, `obsidian-plugin`, `reading`, `rsvp`, `speed-reading`, `typescript`.

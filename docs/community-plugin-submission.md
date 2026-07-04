@@ -2,9 +2,13 @@
 
 ## Submission State
 
-This document records the submission package for Vault Reader. It does not open the `obsidianmd/obsidian-releases` PR yet.
+This document records the submission package for Vault Reader. Initial submission now happens through `https://community.obsidian.md`, not through a pull request to `obsidianmd/obsidian-releases`.
 
 Repository visibility is public.
+
+Community directory entry is live.
+
+Automated review is in progress.
 
 Manual clean-vault Obsidian QA passed from release assets.
 
@@ -12,20 +16,33 @@ Branch protection is enabled on `main`.
 
 Private vulnerability reporting is enabled.
 
-No `obsidianmd/obsidian-releases` PR is opened during this phase.
+The historical `obsidianmd/obsidian-releases` PR path is no longer available. GitHub reports that the repository owner has disabled opening pull requests.
 
 BRAT/public beta is optional and deferred unless manual QA finds risk.
 
-Screenshot or GIF capture is recommended before broader promotion and can be added before or shortly after the Obsidian submission PR. It is not required for the Obsidian release metadata PR.
+Screenshot or GIF capture is recommended before broader promotion and can be added before or shortly after the Obsidian Community directory submission. It is not required for the directory submission.
 
-## Current Obsidian Pull Contract
+## Current Obsidian Submission Contract
 
 Source references:
 
+- `https://docs.obsidian.md/Plugins/Releasing/Submit%20your%20plugin`
 - `https://github.com/obsidianmd/obsidian-releases`
 - `https://raw.githubusercontent.com/obsidianmd/obsidian-releases/master/community-plugins.json`
 
-Community plugin listing metadata lives in `community-plugins.json`.
+Initial plugin submission happens through the Obsidian Community directory:
+
+1. Sign in to `https://community.obsidian.md` with an Obsidian account.
+2. Link the GitHub account that owns the plugin repository.
+3. Select **Plugins** in the sidebar.
+4. Select **New plugin**.
+5. Enter `https://github.com/MaverickHQ/obsidian-vault-reader`.
+6. Review and agree to the developer policies and support confirmation.
+7. Submit the plugin for automated review.
+
+Submission result on 2026-07-03: the entry is live and automated review is in progress.
+
+The directory processes `manifest.json` from the default branch of the repository, so `main` must contain the accurate manifest before submission.
 
 Obsidian uses `name`, `author`, and `description` for search. Obsidian reads `manifest.json` and `README.md` from the plugin repository detail page. Installable files are fetched from GitHub Releases tagged identically to the version inside `manifest.json`.
 
@@ -36,7 +53,7 @@ Obsidian uses `name`, `author`, and `description` for search. Obsidian reads `ma
   "id": "vault-reader",
   "name": "Vault Reader",
   "author": "MaverickHQ",
-  "description": "Focused speed reading for Obsidian notes with in-note highlighting. - This plugin has not been manually reviewed by Obsidian staff.",
+  "description": "Focused speed reading for notes with in-note highlighting. - This plugin has not been manually reviewed by Obsidian staff.",
   "repo": "MaverickHQ/obsidian-vault-reader"
 }
 ```
@@ -45,50 +62,53 @@ The repository `manifest.json` and README keep the shorter product description. 
 
 ## Release Package
 
-Release tag: 0.1.0
+Release tag: 0.1.1
 
 Assets: main.js, manifest.json, styles.css
 
 Checksum evidence: SHA256SUMS
 
-The release tag must match `manifest.json` exactly. `manifest.json`, `package.json`, and `versions.json` must agree on `0.1.0`, and `versions.json` must map `0.1.0` to the release `minAppVersion`.
+The release tag must match `manifest.json` exactly. `manifest.json`, `package.json`, and `versions.json` must agree on `0.1.1`, and `versions.json` must map `0.1.1` to the release `minAppVersion`.
 
 ## Pre-Submission Gates
 
 - Production-facing repository is `MaverickHQ/obsidian-vault-reader`.
 - Repository visibility is public.
-- GitHub Release `0.1.0` is published.
+- GitHub Release `0.1.1` is published.
 - Release package must contain `main.js`, `manifest.json`, `styles.css`, and `SHA256SUMS`.
 - Manual clean-vault Obsidian QA verified command palette launch, reader panel, playback, settings, in-note highlight, restart, note switching, reload behavior, and install from release assets.
 - Branch protection requires the `quality` status check on `main`, blocks force-pushes and deletions, and enforces rules for admins.
 - Private vulnerability reporting is enabled for sensitive security reports.
 
-## Prepared Obsidian PR
+## Review Monitoring
 
-Suggested PR title:
+- Watch the Obsidian Community directory submission page for automated review findings.
+- If review feedback requires code or metadata changes, update the public repository, increment the plugin version, publish a matching GitHub Release, and re-run release QA.
+- Do not announce broad launch until the automated review passes or the directory makes the plugin installable from Obsidian.
+- Screenshot/GIF capture can proceed while review is running because it does not alter installable release assets.
+
+## Directory Submission Payload
+
+Repository URL:
 
 ```text
-Add Vault Reader community plugin
+https://github.com/MaverickHQ/obsidian-vault-reader
 ```
 
-Suggested PR body:
+Directory fields expected from the repository:
 
 ```text
-Adds Vault Reader to the Obsidian Community Plugin directory.
+id: vault-reader
+name: Vault Reader
+author: MaverickHQ
+description: Focused speed reading for notes with in-note highlighting.
+repo: MaverickHQ/obsidian-vault-reader
+```
 
-Repository: https://github.com/MaverickHQ/obsidian-vault-reader
-Release: https://github.com/MaverickHQ/obsidian-vault-reader/releases/tag/0.1.0
+Validation notes:
 
-Validation:
-- Release tag matches manifest version 0.1.0.
-- Release assets include main.js, manifest.json, and styles.css.
+- Release tag matches manifest version `0.1.1`.
+- Release assets include `main.js`, `manifest.json`, and `styles.css`.
 - Clean-vault release-asset QA passed.
 - Plugin is desktop-only and local-first with no telemetry, backend, account system, or network calls.
-```
-
-Prepared upstream change:
-
-- File: `community-plugins.json`
-- Position: appended to the end of the current plugin list, matching recent community entries.
-- Duplicate check: `vault-reader` ID and `MaverickHQ/obsidian-vault-reader` repo were not present in the current upstream list.
-- Local patch prepared during release closeout at `/private/tmp/vault-reader-obsidian-releases.patch`.
+- The `id` is `vault-reader`, is unique in the upstream listing at the time of pre-submission validation, and does not contain `obsidian`.

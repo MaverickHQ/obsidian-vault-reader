@@ -1,5 +1,21 @@
 # Release Notes
 
+## 0.1.1 - 2026-07-04
+
+### Automated Review Metadata Fix
+
+Focused speed reading for notes, local-first, with optional in-note follow-along highlight.
+
+- Removed the redundant word `Obsidian` from the plugin manifest/package description because the Community Plugins directory implies the Obsidian context and rejects descriptions containing that word.
+- Kept the product promise unchanged: a focused local-first speed reader for notes with optional in-note follow-along highlight.
+- Published a matching GitHub release tag and installable release assets for `0.1.1`.
+
+### Release And Install Contract
+
+- `manifest.json`, `package.json`, and `versions.json` must agree on version `0.1.1`.
+- The GitHub release tag must match `manifest.json` exactly.
+- The release package must include `main.js`, `manifest.json`, `styles.css`, and checksum evidence.
+
 ## 0.1.0 - 2026-06-14
 
 ### Community Plugin Release Contract

@@ -4,7 +4,7 @@
 
 Dry-run source: release/clean-public-tree
 
-GitHub Release tag: 0.1.0
+GitHub Release tag: 0.1.1
 
 The release tag must match manifest.json exactly.
 
@@ -28,7 +28,7 @@ npm run package:release
 npm run test:e2e:release
 ```
 
-`npm run package:release` builds the release package under `release/0.1.0`.
+`npm run package:release` builds the release package under `release/0.1.1`.
 
 `npm run test:e2e:release` performs clean-vault install smoke validation and verifies the package can be installed into `.obsidian/plugins/vault-reader`.
 
@@ -44,9 +44,9 @@ npm run test:e2e:release
 ## Latest Dry-Run Evidence
 
 - Source: `release/clean-public-tree`
-- Version: `0.1.0`
+- Version: `0.1.1`
 - Commands passed: `npm ci`, `npm run package:release`, `npm run test:e2e:release`
-- Release directory verified: `release/0.1.0`
+- Release directory verified: `release/0.1.1`
 - Files verified: `main.js`, `manifest.json`, `styles.css`, `SHA256SUMS`
 - Version alignment verified: `manifest.json`, `package.json`, and `versions.json`
 - Exclusion spot-check passed for source maps, dotenv files, and private-key-like files in the release directory

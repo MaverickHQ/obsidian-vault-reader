@@ -22,6 +22,8 @@ For external testers before directory approval, use a GitHub release package and
 
 ## Demo Asset Plan
 
+Status: automated review is in progress. Demo capture can proceed now because screenshots and GIF/video do not alter installable release assets.
+
 Required happy-path capture:
 
 - Open `fixtures/manual-test-vault`.
@@ -37,8 +39,18 @@ Recommended assets:
 
 - `docs/assets/vault-reader-main-panel.png`
 - `docs/assets/vault-reader-highlight.png`
-- `docs/assets/vault-reader-source-changed.png`
-- short GIF or video for the happy path, attached to the GitHub release if binary size is not suitable for the repo.
+- `docs/assets/vault-reader-review-ready.png`
+- short GIF or video for the happy path, attached as GitHub Release media if binary size is not suitable for the repo.
+
+GitHub Release media is the approved fallback location for a large GIF or video. Keep optimized screenshots in `docs/assets/` whenever possible.
+
+Short GIF/video story:
+
+1. Start from `10-Prose.md`.
+2. Open Vault Reader beside the note.
+3. Press play, pause, and restart.
+4. Toggle in-note highlight.
+5. Adjust one control such as WPM or panel zoom.
 
 ## Launch Copy
 
@@ -64,7 +76,7 @@ It is intentionally small for the first release: no backend, no telemetry, no ac
 
 ### GitHub Release
 
-Vault Reader `0.1.0` is the first community-plugin release candidate.
+Vault Reader `0.1.1` is the current community-plugin review candidate.
 
 Included:
 

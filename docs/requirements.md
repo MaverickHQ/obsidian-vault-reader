@@ -13,7 +13,7 @@ Vault Reader is an Obsidian community plugin that helps people read their own no
 
 The product promise for the first community release is:
 
-> Focused speed reading for Obsidian notes, local-first, with optional in-note follow-along highlight.
+> Focused speed reading for notes, local-first, with optional in-note follow-along highlight.
 
 ## 2. Problem Statement
 
