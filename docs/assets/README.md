@@ -1,16 +1,20 @@
 # Demo Assets
 
-This folder is reserved for public launch screenshots or GIF/video stills.
+This folder contains public launch screenshots, GIFs, or video stills for Vault Reader.
 
 Capture source: `fixtures/manual-test-vault`
 
-Capture assets from the same Obsidian vault used for local QA. The Obsidian Community automated review is in progress, and these assets can be prepared while review runs because they do not alter installable release assets.
+Capture assets from the same Obsidian vault used for local QA so README, QA, and launch copy all show the same tested experience.
 
 Do not use private notes, customer/client material, personal journal content, or copied proprietary material in public screenshots, GIFs, videos, or stills.
 
 Do not use copyrighted book text in public demo assets.
 
 No private notes, personal data, client material, or copyrighted book text may appear in public launch assets.
+
+## Current Assets
+
+- `vault-reader-demo.gif`: README/social demo GIF, 900x511, 10 fps, 18.8 seconds, approximately 571 KB.
 
 ## Required Demo Flow
 

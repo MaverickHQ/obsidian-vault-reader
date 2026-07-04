@@ -1,6 +1,12 @@
 # Vault Reader for Obsidian
 
+[![CI](https://github.com/MaverickHQ/obsidian-vault-reader/actions/workflows/ci.yml/badge.svg)](https://github.com/MaverickHQ/obsidian-vault-reader/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/MaverickHQ/obsidian-vault-reader)](https://github.com/MaverickHQ/obsidian-vault-reader/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Focused speed reading for notes, local-first, with optional in-note follow-along highlight.
+
+![Vault Reader demo](docs/assets/vault-reader-demo.gif)
 
 Vault Reader turns the note you are already reading into a calm side-panel reader. It keeps your note open, lets you control pace and focus, and avoids accounts, telemetry, backend services, or network calls.
 
@@ -18,9 +24,19 @@ Vault Reader is for people who keep research notes, essays, meeting notes, study
 
 It is especially useful when you want to review dense notes at a steady pace while keeping the original Markdown nearby.
 
-## Install For Testing
+## Install
 
-Before Obsidian Community Plugin approval, use the included manual test vault:
+Install from Obsidian Community Plugins:
+
+1. Open `Settings -> Community plugins`.
+2. Turn off `Restricted mode` if community plugins are not already enabled.
+3. Browse for `Vault Reader`.
+4. Install and enable the plugin.
+5. Open any Markdown note and run `Vault Reader: Start reading current note`.
+
+Vault Reader is desktop-only for the first release.
+
+## Local Development
 
 1. Install dependencies:
    `npm ci`
@@ -36,17 +52,6 @@ For a different local vault, set:
 
 `VAULT_READER_PLUGIN_DIR="/absolute/path/to/.obsidian/plugins/vault-reader" npm run build:local`
 
-## Install After Community Approval
-
-After approval, install from Obsidian Community Plugins:
-
-1. Open `Settings -> Community plugins`.
-2. Browse for `Vault Reader`.
-3. Install and enable the plugin.
-4. Open any Markdown note and run `Vault Reader: Start reading current note`.
-
-Until then, tester installs should use the release package or `fixtures/manual-test-vault`.
-
 ## How To Use
 
 1. Open a Markdown note.
@@ -60,9 +65,7 @@ If you open a different note while the reader is still loaded, Vault Reader keep
 
 ## Demo
 
-The public demo package is planned and documented in [docs/assets/README.md](docs/assets/README.md). Capture it from `fixtures/manual-test-vault` so the README, QA flow, and launch copy all show the same tested experience.
-
-The demo flow should show: open note, run `Vault Reader: Start reading current note`, play/pause, adjust WPM or zoom, enable in-note highlight, and run `Vault Reader: Restart current note from beginning`.
+The README demo GIF is stored at [docs/assets/vault-reader-demo.gif](docs/assets/vault-reader-demo.gif). It was captured from the curated manual test vault so public docs, QA, and launch assets all show the same tested experience.
 
 ## In-Note Highlighting
 
@@ -95,7 +98,7 @@ See [SECURITY.md](SECURITY.md) and [security-review.md](docs/security-review.md)
 
 The first community release is focused on an excellent Obsidian-native reader.
 
-future exploration:
+Future exploration:
 
 - RSVP Nano export and device workflows.
 - BYOK AI reading helpers.
