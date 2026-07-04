@@ -1,5 +1,20 @@
 # Release Notes
 
+## 0.1.4 - 2026-07-04
+
+### In-Note Highlight Reliability Fix
+
+Focused speed reading for notes, local-first, with optional in-note follow-along highlight.
+
+- Captures the source editor highlighter before async note resolution can yield focus, preventing a session from losing its source editor before the reader pane opens.
+- Shows `Note Highlight Unavailable` when highlighting is enabled but no source editor was captured, instead of silently showing an enabled state with no visible highlight.
+
+### Release And Install Contract
+
+- `manifest.json`, `package.json`, and `versions.json` must agree on version `0.1.4`.
+- The GitHub release tag must match `manifest.json` exactly.
+- The release package must include only `main.js`, `manifest.json`, and `styles.css`; provenance is supplied by GitHub artifact attestations.
+
 ## 0.1.3 - 2026-07-04
 
 ### Automated Review Release Description And Settings Heading Fix

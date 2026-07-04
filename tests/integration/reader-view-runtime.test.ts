@@ -326,6 +326,26 @@ describe("VaultReaderView runtime behavior", () => {
     expect(applyHighlight).not.toHaveBeenCalled();
   });
 
+  it("shows in-note highlight as unavailable when enabled without a captured source editor", async () => {
+    const view = new VaultReaderView({} as never, {
+      settingsStore: createSettingsStore(),
+      positionStore: createPositionStore(),
+    });
+
+    await view.onOpen();
+    await view.setSession({
+      sourceKey: "notes/highlight.md",
+      title: "highlight",
+      tokens: tokenizeReadingText("One two"),
+      highlightMap: createHighlightMap(),
+      wpm: 300,
+    });
+
+    expect(view.contentEl.textContent).toContain("Note Highlight Unavailable");
+
+    await view.onClose();
+  });
+
   it("cycles and persists the in-note highlight color while re-applying the current word", async () => {
     const applyHighlight = vi.fn();
     const updateCalls: Array<Record<string, unknown>> = [];

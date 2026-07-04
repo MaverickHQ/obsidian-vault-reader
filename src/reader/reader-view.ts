@@ -21,6 +21,7 @@ import {
   type PanelZoomBounds,
 } from "./reader-view-model";
 import type { TokenHighlightMap } from "./source-highlight-map";
+import type { SourceHighlightState } from "./source-highlight-state";
 import type { ReaderSettingsStore } from "../settings/settings-store";
 import type { VaultReaderSettings } from "../settings/vault-reader-data-store";
 import { VAULT_READER_COPY } from "../ui/copy";
@@ -426,8 +427,19 @@ export class VaultReaderView extends ItemView {
       settings: this.settings,
       resolvedPanelZoom: this.resolvedPanelZoom,
       token: this.controller.getCurrentToken(),
-      sourceHighlightState: this.sourceHighlighter?.getState(),
+      sourceHighlightState: this.getSourceHighlightStateForRender(),
     });
+  }
+
+  private getSourceHighlightStateForRender(): SourceHighlightState {
+    const currentState = this.sourceHighlighter?.getState();
+    if (currentState) {
+      return currentState;
+    }
+
+    return this.settings.inNoteHighlightEnabled
+      ? { status: "unavailable", reason: "NO_SOURCE_EDITOR", notified: true }
+      : { status: "disabled" };
   }
 
   private updateSourceHighlightFromSnapshot(snapshot: ReaderSnapshot): void {

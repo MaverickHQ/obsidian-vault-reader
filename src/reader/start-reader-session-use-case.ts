@@ -34,6 +34,7 @@ export interface StartReaderSessionDependencies {
 export async function startReaderSession(
   dependencies: StartReaderSessionDependencies,
 ): Promise<StartReaderSessionResult> {
+  const sourceHighlighter = dependencies.captureSourceHighlighter();
   const resolvedSource = await dependencies.resolveSource();
   if (!resolvedSource.ok) {
     return {
@@ -57,7 +58,6 @@ export async function startReaderSession(
     };
   }
 
-  const sourceHighlighter = dependencies.captureSourceHighlighter();
   const view = await dependencies.activateReaderView();
   if (!view) {
     return {
