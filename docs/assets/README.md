@@ -6,6 +6,8 @@ Capture source: `fixtures/manual-test-vault`
 
 Capture assets from the same Obsidian vault used for local QA so README, QA, and launch copy all show the same tested experience.
 
+The Obsidian Community automated review is in progress or recently completed when launch assets are prepared, and these assets can be updated independently because they do not alter installable release assets.
+
 Do not use private notes, customer/client material, personal journal content, or copied proprietary material in public screenshots, GIFs, videos, or stills.
 
 Do not use copyrighted book text in public demo assets.

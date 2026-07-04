@@ -24,7 +24,7 @@ Vault Reader is for people who keep research notes, essays, meeting notes, study
 
 It is especially useful when you want to review dense notes at a steady pace while keeping the original Markdown nearby.
 
-## Install
+## Install After Community Approval
 
 Install from Obsidian Community Plugins:
 
@@ -36,7 +36,9 @@ Install from Obsidian Community Plugins:
 
 Vault Reader is desktop-only for the first release.
 
-## Local Development
+## Install For Testing
+
+For local development or release-asset verification, use the included manual test vault:
 
 1. Install dependencies:
    `npm ci`
@@ -65,7 +67,7 @@ If you open a different note while the reader is still loaded, Vault Reader keep
 
 ## Demo
 
-The README demo GIF is stored at [docs/assets/vault-reader-demo.gif](docs/assets/vault-reader-demo.gif). It was captured from the curated manual test vault so public docs, QA, and launch assets all show the same tested experience.
+The README demo GIF is stored at [docs/assets/vault-reader-demo.gif](docs/assets/vault-reader-demo.gif). Demo asset standards are documented in [docs/assets/README.md](docs/assets/README.md). The GIF was captured from the curated manual test vault so public docs, QA, and launch assets all show the same tested experience.
 
 ## In-Note Highlighting
 
@@ -98,7 +100,7 @@ See [SECURITY.md](SECURITY.md) and [security-review.md](docs/security-review.md)
 
 The first community release is focused on an excellent Obsidian-native reader.
 
-Future exploration:
+future exploration:
 
 - RSVP Nano export and device workflows.
 - BYOK AI reading helpers.
