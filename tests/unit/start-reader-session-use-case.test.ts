@@ -80,7 +80,10 @@ describe("startReaderSession", () => {
     };
 
     const result = await startReaderSession({
-      resolveSource: async () => createSourceResolution("One two"),
+      resolveSource: async () => {
+        callOrder.push("resolve");
+        return createSourceResolution("One two");
+      },
       captureSourceHighlighter: () => {
         callOrder.push("capture");
         return sourceHighlighter;
@@ -92,7 +95,7 @@ describe("startReaderSession", () => {
       getDefaultWpm: () => 420,
     });
 
-    expect(callOrder).toEqual(["capture", "activate"]);
+    expect(callOrder).toEqual(["capture", "resolve", "activate"]);
     expect(result).toEqual({
       ok: true,
       code: "SESSION_STARTED",
@@ -118,6 +121,44 @@ describe("startReaderSession", () => {
       expect.objectContaining({
         ok: true,
         sourceKey: "notes/source.md",
+      }),
+    );
+  });
+
+  it("captures the source highlighter before async source resolution can yield focus", async () => {
+    const callOrder: string[] = [];
+    const setSession = vi.fn<VaultReaderSessionView["setSession"]>(async () => undefined);
+    const view: VaultReaderSessionView = {
+      vaultReaderRuntimeId: "vault-reader-view-runtime/v2.6-highlight-safe",
+      setSession,
+    };
+    const sourceHighlighter = {
+      apply: vi.fn(),
+      clear: vi.fn(),
+    };
+
+    await startReaderSession({
+      resolveSource: async () => {
+        callOrder.push("resolve-start");
+        await Promise.resolve();
+        callOrder.push("resolve-finish");
+        return createSourceResolution("One two");
+      },
+      captureSourceHighlighter: () => {
+        callOrder.push("capture");
+        return sourceHighlighter;
+      },
+      activateReaderView: async () => {
+        callOrder.push("activate");
+        return view;
+      },
+      getDefaultWpm: () => 300,
+    });
+
+    expect(callOrder).toEqual(["capture", "resolve-start", "resolve-finish", "activate"]);
+    expect(setSession).toHaveBeenCalledWith(
+      expect.objectContaining({
+        sourceHighlighter,
       }),
     );
   });
