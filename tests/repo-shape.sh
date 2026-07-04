@@ -23,7 +23,6 @@ required_paths=(
   "docs/design.md"
   "docs/PROJECT_STRUCTURE.md"
   "docs/tasks.md"
-  "docs/roadmap.md"
   "docs/community-plugin-submission.md"
   "docs/release-notes.md"
   "docs/release-submission-dry-run.md"

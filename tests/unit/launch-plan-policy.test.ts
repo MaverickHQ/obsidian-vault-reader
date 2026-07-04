@@ -30,9 +30,8 @@ describe("launch plan policy", () => {
       "speed-reading",
       "release downloads",
       "GitHub stars",
-      "RSVP Nano",
-      "BYOK AI",
-      "future exploration",
+      "Launch Scope Boundaries",
+      "Do not market unshipped features",
     ]) {
       expect(launchPlan).toContain(requiredCopy);
     }

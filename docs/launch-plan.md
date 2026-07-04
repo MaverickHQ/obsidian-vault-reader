@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Launch Vault Reader as a focused, local-first Obsidian speed reader before expanding into RSVP Nano device workflows or BYOK AI.
+Launch Vault Reader as a focused, local-first Obsidian speed reader with a simple public message.
 
 The launch story should be simple: open a note in Obsidian, run Vault Reader, read in a focused side panel, optionally follow along in the note, and keep all content local.
 
@@ -72,7 +72,7 @@ Vault Reader beta: a local-first speed reader inside Obsidian. It opens beside y
 
 I made Vault Reader, a local-first speed reader for Obsidian notes. It keeps your note visible, opens a reader panel beside it, supports WPM/zoom/restart controls, and can optionally highlight the current word in source mode.
 
-It is intentionally small for the first release: no backend, no telemetry, no account, no BYOK AI, and no device workflow yet. The test setup uses `fixtures/manual-test-vault`, the same vault used during development.
+It is intentionally small for the first release: no backend, no telemetry, and no account. The test setup uses `fixtures/manual-test-vault`, the same vault used during development.
 
 ### GitHub Release
 
@@ -87,8 +87,6 @@ Included:
 - local settings and per-note progress
 - release package with only `main.js`, `manifest.json`, and `styles.css`
 - GitHub artifact attestations for release provenance
-
-Deferred as future exploration: RSVP Nano export, BYOK AI, mobile support, and follow-scroll.
 
 ## Feedback Loop
 
@@ -140,8 +138,8 @@ Recommended topics:
 - `typescript`
 - `local-first`
 
-## Roadmap Boundaries
+## Launch Scope Boundaries
 
 Keep the launch message focused on the Obsidian reader.
 
-RSVP Nano and BYOK AI are future exploration items. They should appear as roadmap possibilities, not launch promises.
+Do not market unshipped features as part of the plugin page, README, release notes, or launch posts.

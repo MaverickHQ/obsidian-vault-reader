@@ -143,7 +143,7 @@ These items are deliberately outside the first community release. They remain va
 | AC6 | Unsupported contexts produce helpful notices rather than broken or stale playback.                                                                 |
 | AC7 | Security policy tests verify no runtime network calls, no unsafe note rendering, and sanitized user-facing errors.                                 |
 | AC8 | Repository-shape checks prevent generated assets, local scratch files, release output, secrets, and old active-scope artifacts from being tracked. |
-| AC9 | README, release notes, community QA, launch plan, roadmap, requirements, and design all describe the same release scope.                           |
+| AC9 | README, release notes, community QA, launch plan, requirements, and design all describe the same release scope.                                    |
 
 ## 9. Success Criteria
 

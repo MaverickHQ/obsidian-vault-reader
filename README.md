@@ -96,19 +96,6 @@ See [SECURITY.md](SECURITY.md) and [security-review.md](docs/security-review.md)
 - Selected-text reading is not a launch feature.
 - Mobile support is not validated yet.
 
-## Roadmap
-
-The first community release is focused on an excellent Obsidian-native reader.
-
-future exploration:
-
-- RSVP Nano export and device workflows.
-- BYOK AI reading helpers.
-- Reading queues or playlist-style flows.
-- Optional follow-scroll behavior after performance validation.
-
-RSVP Nano and BYOK AI are roadmap items, not current release functionality.
-
 ## Local Build + Deploy Pipeline
 
 - Deploy into the local manual test vault plugin folder:
@@ -126,7 +113,6 @@ RSVP Nano and BYOK AI are roadmap items, not current release functionality.
 - [requirements.md](docs/requirements.md)
 - [design.md](docs/design.md)
 - [tasks.md](docs/tasks.md)
-- [roadmap.md](docs/roadmap.md)
 - [community-plugin-qa.md](docs/community-plugin-qa.md)
 - [community-plugin-submission.md](docs/community-plugin-submission.md)
 - [launch-plan.md](docs/launch-plan.md)

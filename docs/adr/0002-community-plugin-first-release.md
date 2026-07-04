@@ -45,6 +45,6 @@ Deferred scope includes:
 
 - Active requirements and design stay smaller and easier to review.
 - Historical documents move to `docs/archive/pre-community-release/`.
-- Device and AI work remain visible in the roadmap but are not release promises.
+- Device and AI work remain outside the release promise unless reactivated through updated requirements, design, task, and TDD gates.
 - Repo-shape and policy tests enforce the public release boundary.
 - Future phases can reactivate deferred work only through updated requirements, design, ADR, task list, and TDD coverage.
