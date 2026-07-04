@@ -2,13 +2,15 @@
 
 This folder is reserved for public launch screenshots or GIF/video stills.
 
-Capture assets from the same Obsidian vault used for local QA:
+Capture source: `fixtures/manual-test-vault`
 
-`fixtures/manual-test-vault`
+Capture assets from the same Obsidian vault used for local QA. The Obsidian Community automated review is in progress, and these assets can be prepared while review runs because they do not alter installable release assets.
 
 Do not use private notes, customer/client material, personal journal content, or copied proprietary material in public screenshots, GIFs, videos, or stills.
 
 Do not use copyrighted book text in public demo assets.
+
+No private notes, personal data, client material, or copyrighted book text may appear in public launch assets.
 
 ## Required Demo Flow
 
@@ -25,8 +27,16 @@ Capture a concise happy path:
 
 Recommended captures:
 
-- `vault-reader-main-panel.png`
-- `vault-reader-highlight.png`
-- `vault-reader-source-changed.png`
+- `docs/assets/vault-reader-main-panel.png`
+- `docs/assets/vault-reader-highlight.png`
+- `docs/assets/vault-reader-review-ready.png`
 
-If the final GIF or video is too large for the repository, attach it to the GitHub release and keep this folder limited to optimized screenshots.
+If the final GIF or video is too large for the repository, attach it as GitHub Release media and keep this folder limited to optimized screenshots.
+
+## Manual Capture Gate
+
+- Obsidian is opened to `fixtures/manual-test-vault`.
+- `10-Prose.md` is the visible note for primary screenshots.
+- Highlight screenshots use only curated fixture prose.
+- GIF/video does not show private desktop content, browser tabs, local paths, tokens, or unrelated apps.
+- Captured assets are reviewed before commit or release attachment.

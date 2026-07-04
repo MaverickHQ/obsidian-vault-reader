@@ -34,6 +34,7 @@
 | Phase 3.4.1   | Project repository hygiene                 | Public-facing docs, folders, archives, and ignore rules are professional and enforced |
 | Phase 3.4.1.5 | Exceptional pre-public polish              | First-use UX, command polish, QA evidence, and release verification feel premium      |
 | Phase 3.4.2   | Clean public repository preparation        | Publish from a sanitized no-history tree without leaking private working history      |
+| Phase 3.6     | Launch asset package                       | Screenshot/GIF package ready for README, GitHub release media, and launch posts       |
 | Backlog A     | RSVP Nano export                           | Real device-compatible export path after community release                            |
 | Backlog B     | BYOK AI optional layer                     | Useful but non-blocking AI helpers after core adoption                                |
 | Backlog C     | Legacy hardening and release               | Historical release checklist superseded by Phase 3                                    |
@@ -1295,13 +1296,13 @@
 
 **Goal:** Make Vault Reader ready for public GitHub review and Obsidian Community Plugin submission while preserving the focused, local-first product identity.
 
-**Milestone:** M3 - A release candidate can be installed from GitHub Releases, passes security/public-review gates, has launch-ready documentation, and is ready for an `obsidianmd/obsidian-releases` submission PR.
+**Milestone:** M3 - A release candidate can be installed from GitHub Releases, passes security/public-review gates, has launch-ready documentation, and is ready for Obsidian Community directory submission.
 
 **Priority principle:** Ship the exceptional Obsidian-native reader first. Do not add RSVP Nano, BYOK AI, payment, telemetry, accounts, or backend scope before the first community release.
 
 ### 3.1 Scope Freeze, Positioning, And Release Contract
 
-- [D] Define the first public release promise in one sentence: `Focused speed reading for Obsidian notes, local-first, with optional in-note follow-along highlight`.
+- [D] Define the first public release promise in one sentence: `Focused speed reading for notes, local-first, with optional in-note follow-along highlight`.
 - [D] Mark RSVP Nano export, BYOK AI, paid licensing, cloud sync, telemetry, and device flashing as explicit non-goals for this release.
 - [D] Confirm `manifest.json` values are public-store appropriate: `id`, `name`, `version`, `minAppVersion`, `description`, `author`, `authorUrl`, and `isDesktopOnly`.
 - [D] Confirm desktop-only status is intentional; if mobile is not tested, keep `isDesktopOnly: true` and document that boundary.
@@ -1901,7 +1902,7 @@
 - [D] Create or verify a GitHub Release whose tag exactly matches `manifest.json` version.
 - [D] Attach `main.js`, `manifest.json`, and `styles.css` to the GitHub Release.
 - [D] Verify `versions.json` includes the release version and correct `minAppVersion`.
-- [D] Prepare the `obsidianmd/obsidian-releases` PR entry for `community-plugins.json`.
+- [D] Prepare the Obsidian Community directory submission metadata.
 - [D] Use searchable listing copy that explains the product without relying on the term `RSVP`.
 - [D] Verify a clean vault can install from the release package before submission.
 - [D] Optionally run a short BRAT/public beta before submitting if manual QA finds uncertainty or if we want early social proof.
@@ -1925,7 +1926,7 @@
 
 - `GitHub release tag matches manifest version exactly`
 - `release assets include main.js, manifest.json, styles.css, and checksum evidence`
-- `community plugin listing metadata includes id, name, author, description, and repo`
+- `community plugin directory metadata includes id, name, author, description, repo, and GitHub repository URL`
 - `clean vault install passes command, reader, playback, settings, highlight, restart, and reload smoke tests`
 
 **Validation evidence:**
@@ -1952,14 +1953,25 @@
 - `npm run test -- --coverage` passed: 65 test files, 245 tests, statements 89.51%, branches 80.09%, functions 92.55%, lines 89.62%.
 - Current upstream `obsidianmd/obsidian-releases` metadata checked: default branch is `master`, plugin listing file is `community-plugins.json`, `vault-reader` ID is not present, and `MaverickHQ/obsidian-vault-reader` repo is not present.
 - Prepared a minimal append-only upstream patch for `community-plugins.json` at `/private/tmp/vault-reader-obsidian-releases.patch`; no external PR was opened.
+- Attempted the historical `obsidianmd/obsidian-releases` PR route, but GitHub reports: `An owner of this repository has disabled the ability to open pull requests.`
+- Current official Obsidian submission guidance verified from `https://docs.obsidian.md/Plugins/Releasing/Submit%20your%20plugin`: submit through `https://community.obsidian.md`, sign in with an Obsidian account, link GitHub, select **Plugins**, select **New plugin**, and enter the GitHub repository URL.
+- Obsidian Community directory submission completed by the project owner on 2026-07-03.
+- Submission result: `Your entry is live. An automated review is in progress.`
+- Automated review failed on 2026-07-04 because `manifest.json` description included the redundant word `Obsidian`.
+- Review fix prepared in `0.1.1`: manifest/package description changed to `Focused speed reading for notes with in-note highlighting.`, `versions.json` updated, and release notes added.
+- `npm run verify:release` passed for `0.1.1`: format, lint, 66 test files, 246 tests, release build, release packaging, release E2E install smoke test, high-severity npm audit, and tracked-file secret scan.
+- Packaged `release/0.1.1/manifest.json` verified with description `Focused speed reading for notes with in-note highlighting.` and no `Obsidian` word in the manifest description.
 - BRAT/public beta remains optional and deferred unless manual QA finds risk.
-- Screenshot/GIF capture remains recommended for README, launch posts, and community discussion, but is not a blocker for the Obsidian release metadata PR.
+- Screenshot/GIF capture remains recommended for README, launch posts, and community discussion, but is not a blocker for the Obsidian Community directory submission.
 - Process note: the community-submission policy test and doc were added in the same edit, so a separate failing RED run was not captured for that specific test; earlier release-submission dry-run policy captured RED for missing submission documentation.
 
-**Still required before opening the Obsidian submission PR:**
+**Still required during automated review:**
 
-- No `obsidianmd/obsidian-releases` PR has been opened yet.
-- Open the `obsidianmd/obsidian-releases` PR from the prepared `community-plugins.json` change.
+- Monitor the Obsidian Community directory submission page for automated review feedback.
+- Publish the `0.1.1` public repo update and matching GitHub Release, then rerun automated review.
+- If further review feedback requires code or metadata changes, update the public repository, increment the plugin version, publish a matching GitHub Release, and rerun release QA.
+- Prepare screenshot/GIF assets for README and launch posts while review runs.
+- Wait for review pass/installability before broad launch announcements.
 
 **Closeout validation evidence recorded:**
 
@@ -1981,8 +1993,96 @@
 
 - [x] Phase 3 tasks are complete and validated, or explicit deferrals are documented in `docs/roadmap.md`.
 - [x] No blocker/high security, deployment, operational, performance, or functional findings remain unresolved.
-- [x] The repo is public and ready before the Obsidian submission PR is opened.
+- [x] The repo is public and the Obsidian Community directory submission is live with automated review in progress.
 - [x] RSVP Nano export, BYOK AI, paid licensing, and device flashing remain deferred to backlog.
+
+### 3.6 Launch Asset Package
+
+**Goal:** Create a polished visual launch package while automated review is in progress, without changing release assets or delaying review feedback.
+
+**Milestone:** M3.6 - README, GitHub release media, and launch posts have safe, tested, public-ready visuals captured from the manual QA vault.
+
+**Scope guard:** Do not change runtime plugin behavior, release package contents, Obsidian submission metadata, device export scope, BYOK AI scope, or paid-model positioning in this phase. This phase is documentation/media only unless review feedback separately requires code changes.
+
+#### 3.6.1 Screenshot Capture Spec
+
+- [ ] Capture `docs/assets/vault-reader-main-panel.png` showing `10-Prose.md` open beside the Vault Reader panel.
+- [ ] Capture `docs/assets/vault-reader-highlight.png` showing source-mode note highlight with the reader panel visible.
+- [ ] Capture `docs/assets/vault-reader-review-ready.png` showing the polished controls, restart action, and local-first positioning without private content.
+- [ ] Use only `fixtures/manual-test-vault` content.
+- [ ] Keep screenshots readable at GitHub README width.
+- [ ] Avoid personal vault names, private notes, local filesystem paths, browser tabs with private data, or non-test content.
+- [ ] [T] RED: add/update policy tests requiring the launch asset task list, capture source, asset filenames, and safety rules before capture begins.
+- [ ] [T] GREEN: update launch docs and asset docs until the policy tests pass.
+- [ ] [T] REFACTOR: keep capture instructions in `docs/assets/README.md` and promotion context in `docs/launch-plan.md`.
+
+**Acceptance tests:**
+
+- `launch assets policy names the required screenshot files`
+- `asset docs require fixtures/manual-test-vault as the capture source`
+- `asset docs prohibit private notes, personal data, client material, and copyrighted book text`
+- `launch docs state automated review is in progress and assets do not alter release binaries`
+
+#### 3.6.2 Short GIF Or Video Capture Spec
+
+- [ ] Capture a 10-20 second happy-path GIF or video showing note -> reader panel -> play/pause -> highlight -> restart.
+- [ ] Prefer an optimized GIF only if file size stays reasonable for the README; otherwise attach video/GIF to GitHub Release media and link from README.
+- [ ] Keep the capture focused on one core story: "read the current note without leaving Obsidian."
+- [ ] Hide unrelated desktop chrome where practical.
+- [ ] [T] RED: add/update policy tests requiring an explicit local-file-or-GitHub-Release-media decision.
+- [ ] [T] GREEN: document the selected asset location and fallback.
+- [ ] [T] REFACTOR: keep binary-size guidance out of launch copy and inside `docs/assets/README.md`.
+
+**Acceptance tests:**
+
+- `asset docs define GitHub Release media as the fallback for large GIF/video files`
+- `launch docs name the short GIF/video happy path`
+- `README either links to committed screenshots or an approved external release-media URL after capture`
+
+#### 3.6.3 README And Launch Copy Integration
+
+- [ ] Replace the README "planned demo package" wording with real asset references after capture.
+- [ ] Add concise alt text for each screenshot.
+- [ ] Update forum/Discord/Reddit launch copy to reference the visual package without overclaiming review status.
+- [ ] Keep launch copy clear that automated review is in progress until approval/installability is confirmed.
+- [ ] [T] RED: add/update README/launch-plan tests that fail until real asset references or approved release-media links are present.
+- [ ] [T] GREEN: update README and launch plan after assets exist.
+- [ ] [T] REFACTOR: keep README concise and put capture details in `docs/assets/README.md`.
+
+**Acceptance tests:**
+
+- `README references captured demo assets or approved release media`
+- `README alt text explains the reader panel and in-note highlight`
+- `launch copy does not claim approval before review passes`
+- `launch copy keeps RSVP Nano, BYOK AI, and paid features out of the launch promise`
+
+#### 3.6.4 Asset QA And Review Gate
+
+- [ ] Run manual visual QA against captured images/video.
+- [ ] Confirm no private information, local paths, tokens, keys, browser tabs, or personal vault content appears in assets.
+- [ ] Confirm images are legible in GitHub dark and light contexts.
+- [ ] Confirm filenames match docs and README references.
+- [ ] Run focused launch asset policy tests.
+- [ ] Run `npm run format:check`.
+- [ ] Run `bash tests/no-secrets.sh`.
+- [ ] [T] Phase-level test gate: launch asset docs and README references must be covered by policy tests, and binary/manual review evidence must be recorded before public use.
+
+**Manual capture gate:**
+
+- Obsidian is opened to `fixtures/manual-test-vault`.
+- `10-Prose.md` is the visible note for primary screenshots.
+- Highlight screenshot uses only curated fixture prose.
+- GIF/video does not show private desktop content.
+- Captured assets are reviewed before commit or release attachment.
+
+**Closeout validation evidence required:**
+
+- RED/GREEN evidence for `tests/unit/launch-assets-policy.test.ts`.
+- Screenshot or release-media links recorded in `docs/assets/README.md`.
+- README/demo section updated after assets exist.
+- Manual visual QA evidence recorded.
+- `npm run format:check` passes.
+- `bash tests/no-secrets.sh` passes.
 
 ## Backlog Phase A: RSVP Nano Export (Deferred)
 

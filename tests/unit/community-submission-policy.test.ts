@@ -17,7 +17,7 @@ function readText(relativePath: string): string {
 }
 
 describe("community plugin submission policy", () => {
-  it("defines the exact Obsidian community plugin listing metadata", () => {
+  it("defines the exact Obsidian community directory submission metadata", () => {
     const submission = readText("docs/community-plugin-submission.md");
 
     expect(submission).toContain("# Obsidian Community Plugin Submission");
@@ -30,6 +30,8 @@ describe("community plugin submission policy", () => {
     expect(submission).toContain(`"repo": "${repo}"`);
     expect(manifest.description).toContain("speed reading");
     expect(manifest.description).not.toMatch(/\bRSVP\b/i);
+    expect(submission).toContain("https://community.obsidian.md");
+    expect(submission).toContain(`https://github.com/${repo}`);
   });
 
   it("captures release tag, version, and asset requirements for Obsidian install", () => {
@@ -43,7 +45,7 @@ describe("community plugin submission policy", () => {
     expect(submission).toContain(`Checksum evidence: ${releaseChecksumFileName}`);
   });
 
-  it("records that final pre-PR visibility, release QA, and GitHub safety gates are complete", () => {
+  it("records that final pre-submission visibility, release QA, and GitHub safety gates are complete", () => {
     const submission = readText("docs/community-plugin-submission.md");
 
     expect(submission).toContain("Repository visibility is public.");
@@ -51,7 +53,7 @@ describe("community plugin submission policy", () => {
     expect(submission).toContain("Branch protection is enabled on `main`.");
     expect(submission).toContain("Private vulnerability reporting is enabled.");
     expect(submission).toContain(
-      "No `obsidianmd/obsidian-releases` PR is opened during this phase.",
+      "The historical `obsidianmd/obsidian-releases` PR path is no longer available.",
     );
     expect(submission).toContain(
       "BRAT/public beta is optional and deferred unless manual QA finds risk.",

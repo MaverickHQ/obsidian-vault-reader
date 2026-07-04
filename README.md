@@ -1,6 +1,6 @@
 # Vault Reader for Obsidian
 
-Focused speed reading for Obsidian notes, local-first, with optional in-note follow-along highlight.
+Focused speed reading for notes, local-first, with optional in-note follow-along highlight.
 
 Vault Reader turns the note you are already reading into a calm side-panel reader. It keeps your note open, lets you control pace and focus, and avoids accounts, telemetry, backend services, or network calls.
 

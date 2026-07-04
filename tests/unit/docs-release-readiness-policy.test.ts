@@ -34,7 +34,8 @@ describe("docs release readiness policy", () => {
     expect(packageJson.description).toBe(manifest.description);
     expect(versions[manifest.version]).toBe(manifest.minAppVersion);
     expect(manifest.description).toContain("speed reading");
-    expect(manifest.description).toContain("Obsidian notes");
+    expect(manifest.description).toContain("notes");
+    expect(manifest.description).not.toMatch(/\bObsidian\b/);
     expect(manifest.description).not.toMatch(/\bRSVP\b/i);
     expect(manifest.description).not.toMatch(/\b(device|AI|paid|backend|telemetry)\b/i);
     expect(manifest.description.length).toBeLessThanOrEqual(90);
@@ -46,7 +47,7 @@ describe("docs release readiness policy", () => {
 
     expect(releaseNotes).toContain(`## ${manifest.version}`);
     expect(releaseNotes).toContain(
-      "Focused speed reading for Obsidian notes, local-first, with optional in-note follow-along highlight.",
+      "Focused speed reading for notes, local-first, with optional in-note follow-along highlight.",
     );
     expect(releaseNotes).toContain("### Included Scope");
     expect(releaseNotes).toContain("### Deferred Scope");

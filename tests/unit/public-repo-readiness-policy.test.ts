@@ -31,7 +31,7 @@ describe("public repository readiness policy", () => {
     const readiness = readText("docs/public-repo-readiness.md");
 
     for (const requiredText of [
-      "Description: Focused speed reading for Obsidian notes with in-note highlighting.",
+      "Description: Focused speed reading for notes with in-note highlighting.",
       "Topics: obsidian-plugin, speed-reading, rsvp, markdown, reading, typescript",
       "Issues enabled",
       "Dependabot enabled",
