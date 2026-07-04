@@ -1,6 +1,6 @@
 {
   "name": "obsidian-vault-reader",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "private": true,
   "description": "Focused speed reading for notes with in-note highlighting.",
   "license": "MIT",

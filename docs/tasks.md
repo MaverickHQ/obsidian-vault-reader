@@ -2058,6 +2058,46 @@
 - Artifact attestations verify for `main.js`, `manifest.json`, and `styles.css`.
 - Obsidian automated review is rerun against `0.1.2`.
 
+#### 3.5.2 Automated Review Remediation For 0.1.3
+
+- [D] Add a non-empty GitHub Release description through the release workflow.
+- [D] Remove the plugin name from the settings tab heading while preserving `Setting#setHeading`.
+- [D] Bump release metadata to `0.1.3`.
+- [D] [T] RED: extend `tests/unit/obsidian-review-policy.test.ts` to fail if the release workflow has no body or the settings heading repeats `Vault Reader`.
+- [D] [T] GREEN: update workflow, settings UI, metadata, and docs until focused tests pass.
+- [D] [T] REFACTOR: keep the settings heading product-neutral and leave the plugin name in the settings sidebar/title only.
+
+**Suggested implementation files:**
+
+- `.github/workflows/release.yml`
+- `src/settings/vault-reader-settings-tab.ts`
+- `manifest.json`
+- `package.json`
+- `versions.json`
+- `docs/release-notes.md`
+
+**Suggested test files:**
+
+- `tests/unit/obsidian-review-policy.test.ts`
+- `tests/unit/vault-reader-settings-tab.test.ts`
+
+**Acceptance tests:**
+
+- `release workflow publishes a non-empty release body`
+- `settings heading uses Setting#setHeading without repeating Vault Reader`
+- `0.1.3 manifest/package/versions metadata is aligned`
+- `release package contains only main.js, manifest.json, and styles.css`
+
+**Closeout validation evidence required:**
+
+- `npm run test -- tests/unit/obsidian-review-policy.test.ts tests/unit/vault-reader-settings-tab.test.ts`
+- `npm run verify:release`
+- Public repo PR merged with passing CI.
+- Tag `0.1.3` pushed after the workflow body change exists on public `main`.
+- GitHub Release `0.1.3` has a non-empty description and contains only `main.js`, `manifest.json`, and `styles.css`.
+- Artifact attestations verify for `main.js`, `manifest.json`, and `styles.css`.
+- Obsidian automated review is rerun against `0.1.3`.
+
 ### 3.6 Launch Asset Package
 
 **Goal:** Create a polished visual launch package while automated review is in progress, without changing release assets or delaying review feedback.

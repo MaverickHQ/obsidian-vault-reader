@@ -53,7 +53,7 @@ describe("VaultReaderSettingsTab", () => {
 
     tab.display();
 
-    expect(SettingMock.created[0]?.name).toBe("Vault Reader");
+    expect(SettingMock.created[0]?.name).toBe("Reading defaults");
     expect(SettingMock.created[0]?.heading).toBe(true);
     const controls = SettingMock.created.slice(1);
 

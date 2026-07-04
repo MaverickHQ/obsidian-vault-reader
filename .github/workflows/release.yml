@@ -40,6 +40,12 @@ jobs:
       - name: Publish GitHub release assets
         uses: softprops/action-gh-release@v2
         with:
+          body: |
+            Vault Reader release ${{ github.ref_name }}.
+
+            This release is built from the public repository tag, verified by the release workflow, and published with GitHub artifact attestations for the installable assets.
+
+            See docs/release-notes.md for the full changelog.
           files: |
             release/${{ github.ref_name }}/main.js
             release/${{ github.ref_name }}/manifest.json

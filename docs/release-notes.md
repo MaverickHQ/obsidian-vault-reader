@@ -1,5 +1,20 @@
 # Release Notes
 
+## 0.1.3 - 2026-07-04
+
+### Automated Review Release Description And Settings Heading Fix
+
+Focused speed reading for notes, local-first, with optional in-note follow-along highlight.
+
+- Changed the settings tab heading from the plugin name to `Reading defaults` to satisfy the Community Plugins review guidance against repeating the plugin name in settings headings.
+- Added a non-empty GitHub Release description to the tag-based release workflow so each published release explains what it is and links back to the changelog.
+
+### Release And Install Contract
+
+- `manifest.json`, `package.json`, and `versions.json` must agree on version `0.1.3`.
+- The GitHub release tag must match `manifest.json` exactly.
+- The release package must include only `main.js`, `manifest.json`, and `styles.css`; provenance is supplied by GitHub artifact attestations.
+
 ## 0.1.2 - 2026-07-04
 
 ### Automated Review Release And Source Compliance

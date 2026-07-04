@@ -33,6 +33,7 @@ describe("Obsidian community review policy", () => {
     expect(readerViewSource).not.toContain('style.setProperty("--vault-reader-shell-scale"');
     expect(settingsTabSource).toContain(".setHeading()");
     expect(settingsTabSource).not.toContain('createEl("h2"');
+    expect(settingsTabSource).not.toContain('setName("Vault Reader").setHeading()');
   });
 
   it("ships only Obsidian-supported release assets and enables provenance attestations", () => {
@@ -41,6 +42,8 @@ describe("Obsidian community review policy", () => {
     expect(releaseAssetNames).toEqual(["main.js", "manifest.json", "styles.css"]);
     expect(releaseWorkflow).toContain("actions/attest-build-provenance");
     expect(releaseWorkflow).toContain("attestations: write");
+    expect(releaseWorkflow).toContain("body: |");
+    expect(releaseWorkflow).toContain("Vault Reader release ${{ github.ref_name }}.");
     expect(packageJson.dependencies).toMatchObject({
       "@codemirror/state": "6.5.0",
       "@codemirror/view": "6.38.6",
