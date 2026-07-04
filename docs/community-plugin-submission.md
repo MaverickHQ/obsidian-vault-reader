@@ -22,6 +22,20 @@ BRAT/public beta is optional and deferred unless manual QA finds risk.
 
 Screenshot or GIF capture is recommended before broader promotion and can be added before or shortly after the Obsidian Community directory submission. It is not required for the directory submission.
 
+## Community Listing Update Effort
+
+Expected level of effort: low, approximately 30-60 minutes for a metadata-only update after the wording is agreed.
+
+The Community Plugins listing is driven primarily by the public repository metadata and `manifest.json`. A copy update should normally require:
+
+1. Confirm the desired plugin description is short, searchable, and does not include the word `Obsidian`.
+2. Update `manifest.json` if the listing description needs to change.
+3. Keep the GitHub repository About description aligned with the manifest description.
+4. Publish a patch release only if the directory requires a new version scan for the metadata change.
+5. Use the Obsidian developer/community portal action to check for new releases or request review, depending on which action is available.
+
+Risk is low for description-only changes, but the release workflow must still preserve the exact release asset contract: `main.js`, `manifest.json`, and `styles.css` only, with matching tag/version and artifact attestations.
+
 ## Current Obsidian Submission Contract
 
 Source references:
