@@ -52,16 +52,16 @@ jobs:
             release/${{ github.ref_name }}/styles.css
 
       - name: Attest main.js
-        uses: actions/attest-build-provenance@v2
+        uses: actions/attest-build-provenance@v4
         with:
           subject-path: release/${{ github.ref_name }}/main.js
 
       - name: Attest manifest.json
-        uses: actions/attest-build-provenance@v2
+        uses: actions/attest-build-provenance@v4
         with:
           subject-path: release/${{ github.ref_name }}/manifest.json
 
       - name: Attest styles.css
-        uses: actions/attest-build-provenance@v2
+        uses: actions/attest-build-provenance@v4
         with:
           subject-path: release/${{ github.ref_name }}/styles.css
