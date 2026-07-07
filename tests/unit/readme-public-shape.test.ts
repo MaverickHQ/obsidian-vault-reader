@@ -29,19 +29,22 @@ describe("README public shape", () => {
     const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
 
     for (const section of [
-      "## Why Use It",
-      "## Who It Is For",
-      "## Install For Testing",
-      "## Install After Community Approval",
+      "Read long notes without leaving your vault.",
+      "## Why Install It?",
+      "## What It Does",
+      "## Install",
       "## How To Use",
-      "## Known Limitations",
+      "## Current Scope",
+      "## For Developers",
     ]) {
       expect(readme).toContain(section);
     }
 
     expect(readme).toContain("fixtures/manual-test-vault");
     expect(readme).toContain("Vault Reader: Start reading current note");
-    expect(readme).toContain("Obsidian Community Plugins");
+    expect(readme).toContain("Community Plugins");
+    expect(readme).toContain("raw.githubusercontent.com/MaverickHQ/obsidian-vault-reader");
+    expect(readme).toContain("Keep everything local");
     expect(readme).not.toContain("## Roadmap");
     expect(readme).not.toContain("future exploration");
   });
